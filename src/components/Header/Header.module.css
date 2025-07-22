@@ -21,3 +21,10 @@
 .navLink:active {
   border-style: inset;
 }
+
+@media (max-width: 768px) {
+  .navLink {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+}
