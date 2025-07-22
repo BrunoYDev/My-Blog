@@ -1,0 +1,23 @@
+.header {
+  border-bottom: 4px groove #c0c0c0;
+  padding: 10px;
+  background-color: #000080; /* Azul clássico de Windows 95 */
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-family: 'Comic Sans MS', cursive;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border: 2px outset #c0c0c0;
+  background-color: #a0a0a0;
+}
+.navLink:active {
+  border-style: inset;
+}

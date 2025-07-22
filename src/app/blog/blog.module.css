@@ -1,0 +1,61 @@
+.blogSection {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pageTitle {
+  font-family: 'Comic Sans MS', cursive;
+  color: #ff00ff;
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 0px #00ffff;
+  margin-bottom: 40px;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.postSnippet {
+  border: 4px dotted magenta;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.postTitle {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.postLink {
+  color: #0000ff;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.postLink:hover {
+  text-decoration: underline;
+  background-color: yellow;
+}
+
+.postMeta {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.postExcerpt {
+  color: #555;
+  margin-top: 15px;
+}
+
+.readMoreLink {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: green;
+  text-decoration: underline;
+}

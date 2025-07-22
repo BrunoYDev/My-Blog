@@ -1,0 +1,50 @@
+/* src/app/blog/[slug]/post.module.css */
+.postArticle {
+  width: 100%;
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid black;
+}
+
+.postTitle {
+  font-size: 2.8rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.postMeta {
+  color: #666;
+  margin-bottom: 40px;
+  border-bottom: 4px dotted magenta;
+  padding-bottom: 20px;
+}
+
+.postContent {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.postContent h2 {
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.postContent p {
+  margin-bottom: 20px;
+}
+
+.postContent a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+.postContent a:hover {
+  background-color: yellow;
+}
