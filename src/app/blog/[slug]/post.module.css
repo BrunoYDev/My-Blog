@@ -1,4 +1,3 @@
-/* src/app/blog/[slug]/post.module.css */
 .postArticle {
   width: 100%;
   max-width: 750px;
@@ -47,4 +46,24 @@
 
 .postContent a:hover {
   background-color: yellow;
+}
+
+.postContent pre {
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #555;
+  overflow-x: auto;
+}
+
+.postContent code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+}
+.postContent :not(pre) > code {
+  background-color: #e0e0e0;
+  color: #c7254e;
+  padding: 2px 4px;
+  border-radius: 4px;
 }

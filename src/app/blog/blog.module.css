@@ -1,8 +1,12 @@
 .blogSection {
   width: 100%;
   max-width: 700px;
+  height: 100vh;
   margin: 0 auto;
   padding: 20px;
+   background-image: url('/backgrounds/926glitter.gif');
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 .pageTitle {

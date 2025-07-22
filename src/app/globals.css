@@ -18,7 +18,9 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-image: url('/backgrounds/backstar.gif');
+  background-repeat: repeat;
+  background-attachment: fixed;
   font-family: 'Comic Sans MS', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
