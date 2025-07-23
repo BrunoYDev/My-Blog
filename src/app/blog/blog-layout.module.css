@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0 20px;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  margin-top: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.detailsSection {
+  border: 2px groove #c0c0c0;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+.summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #000080;
+}
+
+.yearSection {
+  margin-top: 10px;
+}
+
+.yearSection h4 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.linkList {
+  list-style-type: '✧ ';
+  padding-left: 20px;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 5px;
+}
+
+.linkList a {
+  text-decoration: none;
+  color: #0000ff;
+}
+
+.linkList a:hover {
+  text-decoration: underline;
+  background-color: yellow;
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #ddd;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid #ccc;
+}
+
+.yearDetails, .monthDetails {
+  margin-left: 10px;
+  color: #333;
+}
+
+.yearSummary, .monthSummary {
+  padding: 4px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.monthSummary {
+  font-weight: normal;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.tag:hover {
+  background-color: magenta;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}
