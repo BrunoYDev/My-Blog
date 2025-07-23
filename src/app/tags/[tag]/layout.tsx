@@ -30,7 +30,7 @@ export default function BlogLayout({
 
                   const monthName = new Date(
                     `${year}-${month}-01T12:00:00Z`
-                  ).toLocaleString("pt-BR", { month: "long" });
+                  ).toLocaleString("en", { month: "long" });
 
                   return (
                     <details key={month} className={styles.monthDetails}>
