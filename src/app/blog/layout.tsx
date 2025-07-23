@@ -12,10 +12,6 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className={styles.container}>
 
-      <main className={styles.content}>
-        {children}
-      </main>
-
       <aside className={styles.sidebar}>
         
         <details className={styles.detailsSection} open>
@@ -56,6 +52,10 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
           </div>
         </details>
       </aside>
+
+      <main className={styles.content}>
+        {children}
+      </main>
       
     </div>
   );
