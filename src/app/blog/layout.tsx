@@ -22,7 +22,7 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
               {Object.keys(groupedPosts[year]).sort((a, b) => b.localeCompare(a)).map(month => {
                 const postsInMonth = groupedPosts[year][month];
                 
-                const monthName = new Date(`${year}-${month}-01T12:00:00Z`).toLocaleString('pt-BR', { month: 'long' });
+                const monthName = new Date(`${year}-${month}-01T12:00:00Z`).toLocaleString('en', { month: 'long' });
                 
                 return (
                   <details key={month} className={styles.monthDetails}>
