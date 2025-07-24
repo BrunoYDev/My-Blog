@@ -15,7 +15,7 @@ export default function Home() {
         </section>
 
         <p className={styles.introText}>
-          Hey there, I'm Bruno. This is my personal corner of the web—a devlog,
+          Hey there, I am Bruno. This is my personal corner of the web—a devlog,
           a time capsule, and a lab for my web experiments. Glad you stopped by.
           Feel free to look around.
         </p>
@@ -54,7 +54,7 @@ export default function Home() {
           <h2>Shoutbox!</h2>
           <div className={styles.placeholderBox}>
             <p>Guestbook preview coming soon!</p>
-            <p>You'll be able to see the latest messages here.</p>
+            <p>You will be able to see the latest messages here.</p>
           </div>
         </section>
 
