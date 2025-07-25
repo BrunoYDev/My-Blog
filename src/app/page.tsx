@@ -6,6 +6,8 @@ import { getSortedPostsData } from "../../lib/posts";
 import { kv } from "@vercel/kv";
 import { ViewCounterTrigger } from "../components/ViewCounterTrigger/ViewCounterTrigger";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const latestPosts = getSortedPostsData().slice(0, 3);
 
