@@ -1,6 +1,6 @@
 .homeContainer {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* 2/3 de largura para o conteúdo, 1/3 para a sidebar */
+  grid-template-columns: 2fr 1fr;
   gap: 30px;
   padding: 20px;
   max-width: 1200px;
@@ -81,6 +81,10 @@
   color: #333;
 }
 
+ .widgetBox img{
+    max-width: 100%;
+  }
+
 .visitorCount {
   font-family: 'Courier New', Courier, monospace;
   font-size: 2rem;
@@ -106,10 +110,12 @@
   font-style: italic;
 }
 
+
 @media (max-width: 900px) {
   .homeContainer {
     margin: 0 auto;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .welcomeBanner h1 {
