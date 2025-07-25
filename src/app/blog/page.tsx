@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSortedPostsData } from "../../../lib/posts";
 import styles from "./blog.module.css";
+import Image from "next/image";
 
 export default async function BlogPage() {
   const allPostsData = getSortedPostsData();
@@ -14,6 +15,7 @@ export default async function BlogPage() {
           <article key={id} className={styles.postSnippet}>
             <header>
               <h2 className={styles.postTitle}>
+                <Image src="/images/blueArrowSpinning.gif" width={23} height={23} alt="Blue Arrow GIF" unoptimized />
                 <Link href={`/blog/${id}`} className={styles.postLink}>
                   {title}
                 </Link>

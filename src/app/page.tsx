@@ -18,8 +18,8 @@ export default async function Home() {
       <div className={styles.homeContainer}>
         <main className={styles.mainContent}>
           <section className={styles.welcomeBanner}>
-            {/* TODO: Replace this h1 with a cool animated text GIF! */}
-            <h1>Welcome to my Digital Lair!</h1>
+            <Image src="/images/msDog.gif" width={80} height={80} alt="Microsoft Dog GIF" unoptimized />
+            <Image src="/images/welcome.gif" width={640} height={80} alt="Welcome GIF" unoptimized />
           </section>
 
           <p className={styles.introText}>
@@ -34,6 +34,7 @@ export default async function Home() {
               {latestPosts.map(({ id, title, date, excerpt }) => (
                 <article key={id} className={styles.postSnippet}>
                   <h3>
+                    <Image src="/images/blueArrowSpinning.gif" width={25} height={15} alt="Blue Arrow GIF" unoptimized />
                     <Link href={`/blog/${id}`}>{title}</Link>
                   </h3>
                   <small>Posted on: {date}</small>
