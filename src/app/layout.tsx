@@ -5,6 +5,11 @@ import Header from "@/components/Header/Header";
 export const metadata: Metadata = {
   title: "BrunoRGarcia Blog",
   description: "Welcome to my blog, my personal space on the internet where I share my thoughts, experiences, and projects.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
+
 };
 
 export default function RootLayout({
