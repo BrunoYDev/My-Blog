@@ -106,8 +106,9 @@
   font-style: italic;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .homeContainer {
+    margin: 0 auto;
     grid-template-columns: 1fr;
   }
 
