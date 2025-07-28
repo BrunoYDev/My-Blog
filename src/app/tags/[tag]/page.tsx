@@ -22,13 +22,13 @@ export default async function TagIndexPage({ params }: { params: Promise<{ tag: 
     <section className={styles.blogSection}>
       <h1 className={styles.pageTitle}>Posts tagged with: #{tag}</h1>
       <div className={styles.postList}>
-        {postsToShow.map(({ id, date, title, excerpt }) => (
+        {postsToShow.map(({ id, date, title, excerpt, author }) => (
           <article key={id} className={styles.postSnippet}>
             <header>
               <h2 className={styles.postTitle}>
                 <Link href={`/blog/${id}`} className={styles.postLink}>{title}</Link>
               </h2>
-              <small className={styles.postMeta}>Posted on {date}</small>
+              <small className={styles.postMeta}>Posted on {date} by {author}</small>
             </header>
             <p className={styles.postExcerpt}>{excerpt}</p>
           </article>
