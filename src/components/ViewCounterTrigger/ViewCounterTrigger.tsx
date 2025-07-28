@@ -1,46 +1,32 @@
 'use client';
 
 import { useEffect } from 'react';
-import { incrementVisitorCount } from '../../app/action';
+import { registerVisit } from '../../app/action';
 
 export function ViewCounterTrigger() {
+  
   useEffect(() => {
+    const TOTAL_VISIT_KEY = 'has_visited_ever';
+    const DAILY_VISIT_KEY = 'last_visit_timestamp';
+    const COOLDOWN_PERIOD = 24 * 60 * 60 * 1000; // 24 horas em milissegundos
 
-    const STORAGE_KEY = 'visit-info';
-    const COOLDOWN_PERIOD = 24 * 60 * 60 * 1000; 
+    const now = Date.now();
 
-    const handleVisit = () => {
-      try {
-        const visitInfoString = localStorage.getItem(STORAGE_KEY);
-        
-        if (!visitInfoString) {
-          console.log('First visit. Incrementing count.');
-          incrementVisitorCount();
-          
-          localStorage.setItem(STORAGE_KEY, JSON.stringify({ timestamp: Date.now() }));
-          return;
-        }
+    const hasVisitedEver = localStorage.getItem(TOTAL_VISIT_KEY) === 'true';
 
-        const visitInfo = JSON.parse(visitInfoString);
-        const lastVisitTime = visitInfo.timestamp;
-        const currentTime = Date.now();
-
-        if (currentTime - lastVisitTime > COOLDOWN_PERIOD) {
-          console.log('Cooldown period expired. Incrementing count.');
-          incrementVisitorCount();
-          
-          localStorage.setItem(STORAGE_KEY, JSON.stringify({ timestamp: currentTime }));
-        } else {
-          console.log('Visited within the last 24 hours. Not incrementing.');
-        }
-
-      } catch (error) {
-        console.error('Failed to process visitor count:', error);
+    const lastVisitTimestamp = parseInt(localStorage.getItem(DAILY_VISIT_KEY) || '0');
+    
+    const isNewDay = !lastVisitTimestamp || (now - lastVisitTimestamp > COOLDOWN_PERIOD);
+    
+    if (!hasVisitedEver || isNewDay) {
+      registerVisit(!hasVisitedEver, isNewDay);
+      
+      if (!hasVisitedEver) {
+        localStorage.setItem(TOTAL_VISIT_KEY, 'true');
       }
-    };
 
-    handleVisit();
-
+      localStorage.setItem(DAILY_VISIT_KEY, now.toString());
+    }
   }, []);
 
   return null;
