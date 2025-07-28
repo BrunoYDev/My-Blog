@@ -22,8 +22,8 @@ export async function generateStaticParams() {
   return allParams;
 }
 
-export default function PaginatedTagPage({ params }: { params: { tag: string, pageNumber: string } }) {
-  const { tag, pageNumber } = params;
+export default async function PaginatedTagPage({ params }: { params: Promise<{ tag: string, pageNumber: string }> }) {
+  const { tag, pageNumber } = await params;
   const page = parseInt(pageNumber);
 
   const postsForTag = getPostsByTag(tag);

@@ -24,7 +24,7 @@ export async function LatestShouts() {
       {entries.map(entry => (
         <div key={entry.id} className={styles.shout}>
           <span className={styles.shoutAuthor}>{entry.username}</span>
-          <p className={styles.shoutMessage}>"{entry.message}"</p>
+          <p className={styles.shoutMessage}>&ldquo;{entry.message}&rdquo;</p>
         </div>
       ))}
       <Link href="/guestbook" className={styles.linkToGuestbook}>

@@ -7,8 +7,9 @@ import { notFound } from 'next/navigation';
 export const dynamic = 'force-dynamic';
 const ENTRIES_PER_PAGE = 5;
 
-export default async function PaginatedGuestbookPage({ params }: { params: { pageNumber: string } }) {
-  const page = parseInt(params.pageNumber);
+export default async function PaginatedGuestbookPage({ params }: { params: Promise<{ pageNumber: string }> }) {
+  const { pageNumber } = await params;
+  const page = parseInt(pageNumber);
 
   const { count } = await supabase
     .from('guestbook_entries')
@@ -38,7 +39,7 @@ export default async function PaginatedGuestbookPage({ params }: { params: { pag
       <div className={styles.entriesList}>
         {entries?.map(entry => (
           <div key={entry.id} className={styles.entry}>
-            <p className={styles.entryMessage}>"{entry.message}"</p>
+            <p className={styles.entryMessage}>&ldquo;{entry.message}&rdquo;</p>
             <div className={styles.entryFooter}>
               <span className={styles.entryAuthor}>- {entry.username}</span>
               <time className={styles.entryDate}>

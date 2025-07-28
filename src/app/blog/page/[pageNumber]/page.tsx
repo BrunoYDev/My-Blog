@@ -15,8 +15,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PaginatedBlogPage({ params }: { params: { pageNumber: string } }) {
-  const page = parseInt(params.pageNumber);
+export default async function PaginatedBlogPage({ params }: { params: Promise<{ pageNumber: string }> }) {
+  const { pageNumber } = await params;
+  const page = parseInt(pageNumber);
   const allPosts = getSortedPostsData();
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
 

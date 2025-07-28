@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { getSortedPostsData } from "../../../lib/posts";
 import styles from "./blog.module.css";
-import Image from "next/image";
 import { PaginationControls } from "@/components/PaginationControls/PaginationControls";
 
 const POSTS_PER_PAGE = 5;

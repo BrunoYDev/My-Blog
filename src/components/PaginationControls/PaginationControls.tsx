@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './PaginationControls.module.css';
+import styles from './paginationControls.module.css'
 
 interface PaginationControlsProps {
   currentPage: number;

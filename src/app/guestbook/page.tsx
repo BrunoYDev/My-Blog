@@ -35,7 +35,7 @@ export default async function GuestbookPage() {
       <div className={styles.entriesList}>
         {entries?.map(entry => (
           <div key={entry.id} className={styles.entry}>
-            <p className={styles.entryMessage}>"{entry.message}"</p>
+            <p className={styles.entryMessage}>&ldquo;{entry.message}&rdquo;</p>
             <div className={styles.entryFooter}>
               <span className={styles.entryAuthor}>- {entry.username}</span>
               <time className={styles.entryDate}>

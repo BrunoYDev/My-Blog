@@ -11,8 +11,8 @@ export async function generateStaticParams() {
   return tags.map(tag => ({ tag: tag }));
 }
 
-export default function TagIndexPage({ params }: { params: { tag: string } }) {
-  const { tag } = params;
+export default async function TagIndexPage({ params }: { params: Promise<{ tag: string }> }) {
+  const { tag } = await params;
   const postsForTag = getPostsByTag(tag);
   const totalPages = Math.ceil(postsForTag.length / POSTS_PER_PAGE);
 
