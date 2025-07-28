@@ -30,8 +30,8 @@ export default function RootLayout({
         ></script>
         <script id="google-analytics">
           {`
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date()); gtag('config', '${process.env.GTM_ID}');
           `}
         </script>
