@@ -146,4 +146,8 @@
   .welcomeBanner img {
     max-width: 100%;
   }
+
+  .widgetBox img {
+    max-width: 100%;
+  }
 }
