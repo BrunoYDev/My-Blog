@@ -1,0 +1,50 @@
+import { getSortedPostsData } from '../../../../../lib/posts';
+import Link from 'next/link';
+import styles from '../../blog.module.css';
+import { PaginationControls } from '@/components/PaginationControls/PaginationControls' ;
+import { notFound } from 'next/navigation';
+
+const POSTS_PER_PAGE = 5;
+
+export async function generateStaticParams() {
+  const allPosts = getSortedPostsData();
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+  
+  return Array.from({ length: totalPages - 1 }, (_, i) => ({
+    pageNumber: (i + 2).toString(),
+  }));
+}
+
+export default function PaginatedBlogPage({ params }: { params: { pageNumber: string } }) {
+  const page = parseInt(params.pageNumber);
+  const allPosts = getSortedPostsData();
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+  if (page > totalPages || page < 1) {
+    notFound();
+  }
+
+  const startIndex = (page - 1) * POSTS_PER_PAGE;
+  const postsToShow = allPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  return (
+    <section className={styles.blogSection}>
+      <h1 className={styles.pageTitle}>☆★☆ My Blog (Page {page}) ☆★☆</h1>
+      <div className={styles.postList}>
+        {postsToShow.map(({ id, date, title, excerpt, author }) => (
+          <article key={id} className={styles.postSnippet}>
+            <header>
+              <h2 className={styles.postTitle}>
+                <Link href={`/blog/${id}`} className={styles.postLink}>{title}</Link>
+              </h2>
+              <small className={styles.postMeta}>Posted on {date} by {author}</small>
+            </header>
+            <p className={styles.postExcerpt}>{excerpt}</p>
+          </article>
+        ))}
+      </div>
+
+      <PaginationControls currentPage={page} totalPages={totalPages} basePath="/blog" />
+    </section>
+  );
+}

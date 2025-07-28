@@ -2,33 +2,30 @@ import Link from "next/link";
 import { getSortedPostsData } from "../../../lib/posts";
 import styles from "./blog.module.css";
 import Image from "next/image";
+import { PaginationControls } from "@/components/PaginationControls/PaginationControls";
+
+const POSTS_PER_PAGE = 5;
 
 export default async function BlogPage() {
-  const allPostsData = getSortedPostsData();
-  
+  const allPosts = getSortedPostsData();
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+  const postsToShow = allPosts.slice(0, POSTS_PER_PAGE);
 
   return (
     <section className={styles.blogSection}>
       <h1 className={styles.pageTitle}>☆★☆ My Blog ☆★☆</h1>
 
       <div className={styles.postList}>
-        {allPostsData.map(({ id, date, title, author, excerpt }) => (
+        {postsToShow.map(({ id, date, title, excerpt, author }) => (
           <article key={id} className={styles.postSnippet}>
             <header>
               <h2 className={styles.postTitle}>
-                <Image src="/images/blueArrowSpinning.gif" width={23} height={23} alt="Blue Arrow GIF" unoptimized />
-                <Link href={`/blog/${id}`} className={styles.postLink}>
-                  {title}
-                </Link>
+                <Link href={`/blog/${id}`} className={styles.postLink}>{title}</Link>
               </h2>
-              <small className={styles.postMeta}>
-                Published in {date} by {author}
-              </small>
+              <small className={styles.postMeta}>Posted on {date} by {author}</small>
             </header>
-
-            <p className={styles.postExcerpt}>
-                {excerpt}
-            </p>
+            <p className={styles.postExcerpt}>{excerpt}</p>
 
             <Link href={`/blog/${id}`} className={styles.readMoreLink}>
               Read Complete Post »
@@ -37,6 +34,7 @@ export default async function BlogPage() {
         ))}
       </div>
 
+      <PaginationControls currentPage={1} totalPages={totalPages} basePath="/blog" />
     </section>
   );
 }
