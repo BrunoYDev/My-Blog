@@ -4,6 +4,7 @@ import styles from "./blog.module.css";
 
 export default async function BlogPage() {
   const allPostsData = getSortedPostsData();
+  
 
   return (
     <section className={styles.blogSection}>

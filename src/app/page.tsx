@@ -4,17 +4,31 @@ import Link from "next/link";
 import { getSortedPostsData } from "../../lib/posts";
 
 import { kv } from "@vercel/kv";
-import { ViewCounterTrigger } from "../components/ViewCounterTrigger/ViewCounterTrigger";
+import { ViewCounterTrigger } from "@/components/ViewCounterTrigger/ViewCounterTrigger";
+import { ColorfulCounter } from "@/components/ColourfulCounter/ColourfulCounter";
+
+const getTodayKey = () => {
+  const today = new Date().toISOString().split("T")[0];
+  return `daily_visits_${today}`;
+};
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const latestPosts = getSortedPostsData().slice(0, 3);
 
-  const pageviews = (await kv.get<number>("pageviews")) ?? 0;
+  const todayKey = getTodayKey();
+  const totalVisitsPromise = kv.get<number>("total_unique_visitors");
+  const dailyVisitsPromise = kv.get<number>(todayKey);
+
+  const [totalVisits, dailyVisits] = await Promise.all([
+    totalVisitsPromise,
+    dailyVisitsPromise,
+  ]);
 
   return (
     <>
+    <ViewCounterTrigger />
       <div className={styles.homeContainer}>
         <main className={styles.mainContent}>
           <section className={styles.welcomeBanner}>
@@ -69,11 +83,17 @@ export default async function Home() {
           </section>
 
           <section className={styles.widgetBox}>
-            <h2>You are visitor #</h2>
-            <div className={styles.placeholderBox}>
-              <p className={styles.visitorCount}>
-                {pageviews.toLocaleString("en-US")}
-              </p>
+            <h2>Visitor Stats</h2>
+            <div className={styles.visitorStats}>
+              <span>Daily Visits:</span>
+              <div>   
+                <ColorfulCounter count={dailyVisits ?? 0} />
+              </div>
+              <div className={styles.divider}></div>
+              <span>Total Visits:</span>
+              <div>
+                <ColorfulCounter count={totalVisits ?? 0} />
+              </div>
             </div>
           </section>
 
@@ -92,7 +112,6 @@ export default async function Home() {
         </aside>
       </div>
 
-      <ViewCounterTrigger />
     </>
   );
 }
