@@ -1,30 +1,87 @@
 .header {
+  background-color: #000080;
   border-bottom: 4px groove #c0c0c0;
-  padding: 10px;
-  background-color: #000080; /* Azul clássico de Windows 95 */
+  padding: 0 20px;
+  position: relative;
 }
-.nav {
+
+.headerContent {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 60px;
 }
-.navLink {
+
+.logo {
+  font-family: 'Comic Sans MS', cursive;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.nav a {
+  display: block;
+  padding: 5px 10px;
   color: white;
   text-decoration: none;
   font-family: 'Comic Sans MS', cursive;
   font-weight: bold;
-  font-size: 1.2rem;
-  padding: 5px 10px;
   border: 2px outset #c0c0c0;
   background-color: #a0a0a0;
 }
-.navLink:active {
+
+.nav a:active {
   border-style: inset;
 }
 
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
-  .navLink {
-    font-size: 1rem;
-    line-height: 1.2;
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 60px; /* Logo abaixo do header */
+    left: 0;
+    right: 0;
+    background-color: #000080;
+    border-bottom: 4px groove #c0c0c0;
+    padding: 20px;
+    z-index: 100;
+  }
+  
+  .nav.navOpen {
+    display: flex;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav ul li {
+    width: 100%;
+    text-align: center;
   }
 }
