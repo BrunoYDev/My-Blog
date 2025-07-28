@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={``}>
         <Header />
         {children}
-        <GoogleTagManager gtmId="Q7Y0J397SM" />
+        <GoogleTagManager gtmId={process.env.GTM_ID!} />
       </body>
     </html>
   );
