@@ -6,6 +6,7 @@ import { getSortedPostsData } from "../../lib/posts";
 import { kv } from "@vercel/kv";
 import { ViewCounterTrigger } from "@/components/ViewCounterTrigger/ViewCounterTrigger";
 import { ColorfulCounter } from "@/components/ColourfulCounter/ColourfulCounter";
+import { LatestShouts } from "@/components/LatestShouts/LatestShouts";
 
 const getTodayKey = () => {
   const today = new Date().toISOString().split("T")[0];
@@ -65,7 +66,8 @@ export default async function Home() {
         <aside className={styles.sidebar}>
           <section className={styles.widgetBox}>
             <h2>Who Am I?</h2>
-            {/* <Image src="/avatar.png" width={80} height={80} alt="My pixel art avatar" /> */}
+            <Image style={{ marginRight: "5px" }} src="/images/profilePicture.jpg" width={80} height={80} alt="My profile picture" />
+            <Image src="/images/riddleReality.gif" width={310} height={80} alt="Riddle Reality GIF" />
             <p>
               Developer by day, web archaeologist by night. Passionate about the
               creative energy of the old web.
@@ -78,8 +80,7 @@ export default async function Home() {
           <section className={styles.widgetBox}>
             <h2>Shoutbox!</h2>
             <div className={styles.placeholderBox}>
-              <p>Guestbook preview coming soon!</p>
-              <p>You will be able to see the latest messages here.</p>
+              <LatestShouts />
             </div>
           </section>
 
