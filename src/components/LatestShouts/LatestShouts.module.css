@@ -1,0 +1,42 @@
+.shoutboxPreview {
+  font-family: 'Verdana', sans-serif;
+}
+
+.shout {
+  border-bottom: 1px dotted #999;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.shout:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.shoutAuthor {
+  font-weight: bold;
+  color: #000080;
+  font-size: 0.9rem;
+}
+
+.shoutMessage {
+  margin: 5px 0 0 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.linkToGuestbook {
+  display: block;
+  margin-top: 15px;
+  text-align: right;
+  font-weight: bold;
+  color: green;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}

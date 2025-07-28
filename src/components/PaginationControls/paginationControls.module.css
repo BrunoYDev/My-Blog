@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 4px groove #c0c0c0;
+}
+
+.button {
+  padding: 8px 16px;
+  text-decoration: none;
+  font-family: 'Comic Sans MS', 'Press Start 2P', cursive;
+  font-weight: bold;
+  color: #000080;
+  background-color: #c0c0c0;
+  border: 2px outset #f0f0f0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #dcdcdc;
+}
+
+.button:active {
+  border-style: inset;
+}
+
+.pageIndicator {
+  font-weight: bold;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
