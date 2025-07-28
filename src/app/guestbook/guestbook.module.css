@@ -1,0 +1,79 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: 'Verdana', sans-serif;
+  color: #333;
+}
+
+.title {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 2.5rem;
+  color: #ff00ff;
+  text-align: center;
+  text-shadow: 2px 2px 0px #00ffff;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-style: italic;
+  color: #fff;
+}
+
+.divider {
+  border: 0;
+  height: 4px;
+  background-image: repeating-linear-gradient(
+    45deg, 
+    magenta, 
+    magenta 10px, 
+    cyan 10px, 
+    cyan 20px
+  );
+  margin: 40px 0;
+}
+
+.entriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.entry {
+  background-color: #f0f8ff;
+  border: 2px groove #c0c0c0;
+  padding: 15px;
+}
+
+.entryMessage {
+  font-size: 1.1rem;
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+}
+
+.entryFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+  color: #000080;
+}
+
+.entryAuthor {
+  font-weight: bold;
+}
+
+.entryDate {
+  opacity: 0.8;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .title {
+    font-size: 2rem;
+  }
+}
