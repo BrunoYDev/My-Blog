@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: "BrunoRGarcia Blog",
@@ -12,7 +13,6 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.gif',
   },
-
 };
 
 export default function RootLayout({
@@ -25,6 +25,7 @@ export default function RootLayout({
       <body className={``}>
         <Header />
         {children}
+        <GoogleTagManager gtmId="Q7Y0J397SM" />
       </body>
     </html>
   );
