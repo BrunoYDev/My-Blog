@@ -1,0 +1,48 @@
+.bsodContainer {
+  background-color: #000080;
+  color: #FFFFFF;
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  font-weight: bold;
+  height: 100vh;
+  width: 100vw;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.errorCode {
+  background-color: #c0c0c0;
+  color: #000080;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.content p {
+  margin: 0 0 10px 0;
+}
+
+.returnLinkContainer {
+  display: inline-flex;
+  align-items: center;
+}
+
+.returnLink {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.returnLink:hover {
+  background-color: #00aaaa;
+  color: white;
+}
+
+.blinkingCursor {
+  animation: blink 1s step-start 0s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
