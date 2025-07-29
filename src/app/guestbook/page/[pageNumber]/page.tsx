@@ -34,7 +34,7 @@ export default async function PaginatedGuestbookPage({ params }: { params: Promi
     <section className={styles.container}>
       <h1 className={styles.title}>Shoutbox! (Page {page})</h1>
 
-      <Image src="/images/powerLine.gif" width={760} height={80} alt="Divider GIF" unoptimized />
+      <Image src="/images/powerLine.gif" style={{ maxWidth: '100%' }} width={760} height={80} alt="Divider GIF" unoptimized />
 
       <div className={styles.entriesList}>
         {entries?.map(entry => (

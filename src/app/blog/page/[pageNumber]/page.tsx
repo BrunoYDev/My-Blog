@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from '../../blog.module.css';
 import { PaginationControls } from '@/components/PaginationControls/PaginationControls' ;
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
 const POSTS_PER_PAGE = 5;
 
@@ -36,11 +37,16 @@ export default async function PaginatedBlogPage({ params }: { params: Promise<{ 
           <article key={id} className={styles.postSnippet}>
             <header>
               <h2 className={styles.postTitle}>
+                <Image src="/images/blueArrowSpinning.gif" width={25} height={15} alt="Blue Arrow GIF" unoptimized />
                 <Link href={`/blog/${id}`} className={styles.postLink}>{title}</Link>
               </h2>
               <small className={styles.postMeta}>Posted on {date} by {author}</small>
             </header>
             <p className={styles.postExcerpt}>{excerpt}</p>
+
+            <Link href={`/blog/${id}`} className={styles.readMoreLink}>
+              Read Complete Post »
+            </Link>
           </article>
         ))}
       </div>

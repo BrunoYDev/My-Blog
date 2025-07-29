@@ -30,7 +30,7 @@ export default async function GuestbookPage() {
       <p className={styles.subtitle}>Leave a message on the wall for everyone to see!</p>
 
       <GuestbookForm />
-      <Image src="/images/powerLine.gif" width={760} height={80} alt="Divider GIF" unoptimized />
+      <Image src="/images/powerLine.gif" style={{ maxWidth: '100%' }} width={760} height={80} alt="Divider GIF" unoptimized />
 
       <div className={styles.entriesList}>
         {entries?.map(entry => (
