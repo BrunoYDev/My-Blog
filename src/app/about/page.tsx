@@ -40,22 +40,22 @@ export default function AboutPage() {
           <Image src="/images/questionMark.gif" width={40} height={25} alt="QUESTION GIF" unoptimized />
         </h2>
         <p>
-          Born in 2003, I'm a developer who's nostalgic for an era I never
+          Born in 2003, I&apos;m a developer who&apos;s nostalgic for an era I never
           really lived in. My first real contact with this kind of aesthetic
-          wasn't the chaotic web of the early 2000s, but the glossy, optimistic
+          wasn&apos;t the chaotic web of the early 2000s, but the glossy, optimistic
           world of Windows Vista and Windows 7, where the Frutiger Aero style
           reigned supreme.
         </p>
         <p>
-          I'm primarily a backend developer—I love building the logic and the
-          engines that make things run. Styling and frontend aren't my main
+          I&apos;m primarily a backend developer—I love building the logic and the
+          engines that make things run. Styling and frontend aren&apos;t my main
           passion, but I have a deep appreciation for the Y2K aesthetic because
           it represents a time when every website had its own unique soul, long
-          before social media templates made every page look the same. I'm here
+          before social media templates made every page look the same. I&apos;m here
           for the weird, the wonderful, and the wildly different backgrounds.
         </p>
         <p>
-          While I'm actively looking for my first professional role as a
+          While I&apos;m actively looking for my first professional role as a
           developer, I spend my time creating my own worlds by developing games,
           which you can find over on my{" "}
           <a href="https://ykkos2.itch.io/" target="_blank">
@@ -99,15 +99,15 @@ export default function AboutPage() {
           <div className={styles.siteInfoText}>
             <p>
               This website is my personal digital garden and a love letter to
-              the early internet. It's built with modern tech like Next.js,
+              the early internet. It&apos;s built with modern tech like Next.js,
               React, and Vercel, but with a soul firmly planted in the Y2K
               aesthetic. Expect to find code experiments, personal thoughts, and
               a lot of animated GIFs.
             </p>
             <p>
-              You might notice I'm from Brazil, but the site is primarily in
+              You might notice I&apos;m from Brazil, but the site is primarily in
               English—mostly because I feel like it. That said, please feel free
-              to sign the Guestbook in whatever language you're comfortable
+              to sign the Guestbook in whatever language you&apos;re comfortable
               with, be it Portuguese, English, or anything in between. I have no
               plans to add a language selector; the goal is to keep this space
               simple, stylish, and a little bit chaotic, just like the old web
