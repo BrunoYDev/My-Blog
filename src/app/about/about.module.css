@@ -1,0 +1,185 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.avatar {
+  border: 4px groove #c0c0c0;
+  border-radius: 50%;
+}
+
+.introText h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #00ffff;
+  text-shadow: 2px 2px 0px #ff00ff;
+}
+
+.introText .tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  max-width: 100%;
+}
+
+.divider img {
+  max-width: 100%;
+}
+
+.widgetBox {
+  padding: 20px;
+  margin: 30px 0;
+  position: relative;
+  background-color: rgba(240, 240, 240, 0.9);
+  z-index: 1;
+}
+
+.widgetBox::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  
+  background: linear-gradient(
+    45deg,
+    #ff00ff, /* Magenta */
+    #00ffff, /* Cyan */
+    #ffff00, /* Yellow */
+    #00ff00, /* Lime Green */
+    #ff00ff  /* Magenta */
+  );
+  
+  background-size: 400% 400%;
+  z-index: -1;
+  
+  animation: animated-border-flow 8s ease infinite;
+}
+
+@keyframes animated-border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.widgetBox img {
+  max-width: 100%;
+}
+
+.interestsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.interestsContainer h4 {
+  margin-top: 15px;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.5rem;
+  color: #000080;
+  text-shadow: 2px 2px 0px #ff00ff;
+}
+
+.likesList {
+  list-style-type: "✨";
+  padding-left: 25px;
+  margin-bottom: 0;
+}
+
+.likesList li {
+  padding-left: 10px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.interestsGif {
+  max-width: 100%;
+  margin-left: 30px;
+}
+
+.widgetBox p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.widgetBox h2 {
+  margin-top: 0;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.8rem;
+  color: #000080;
+  border-bottom: 2px solid #000080;
+  padding-bottom: 5px;
+}
+
+.siteInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.siteInfoText {
+  flex: 1;
+  min-width: 300px;
+}
+
+.memeGif {
+  flex-shrink: 0;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+}
+
+.links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #0000ff;
+}
+
+.links a:hover {
+  background-color: yellow;
+}
+
+@media (max-width: 768px) {
+  .introText h1 {
+    font-size: 1.8rem;
+  }
+  .siteInfo {
+    flex-direction: column;
+  }
+  .interestsContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .interestsGif {
+    margin-top: 20px;
+    align-self: center;
+  }
+}
