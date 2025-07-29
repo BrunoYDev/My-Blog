@@ -1,8 +1,8 @@
 .postArticle {
   width: 100%;
-  max-width: 750px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 46px;
   background-color: #fff;
   border: 2px solid black;
 }
@@ -26,6 +26,10 @@
   font-size: 1.1rem;
   line-height: 1.8;
   color: #333;
+}
+
+.postContent img {
+  max-width: 100%;
 }
 
 .postContent h2 {
@@ -68,7 +72,6 @@
   border-radius: 4px;
 }
 
-/* Adicione no final de post.module.css */
 .tagList {
   margin-top: -20px;
   margin-bottom: 40px;
@@ -84,6 +87,25 @@
   font-size: 0.8rem;
   text-decoration: none;
   border: 1px solid #ccc;
+}
+
+.postContent :global(blockquote) {
+  border-left: 4px solid #ccc;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  color: #555;
+  font-style: italic;
+}
+
+.postContent :global(blockquote p) {
+  margin: 0;
+}
+
+.postContent :global(blockquote blockquote) {
+  border-left-color: #aaa;
+  margin-left: 15px;
+  background-color: #eee;
 }
 
 .tag:hover {
