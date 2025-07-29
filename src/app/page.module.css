@@ -83,6 +83,18 @@
   color: #333;
 }
 
+.pinnedPost {
+  background-color: #fffacd;
+  border: 2px dashed #000080;
+}
+
+.pinnedHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: none !important; 
+}
+
 .visitorStats {
   text-align: center;
   background-color: #00000090;
