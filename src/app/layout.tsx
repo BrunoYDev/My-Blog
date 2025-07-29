@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     width: "device-width",
     initialScale: 1,
   },
-  icons: {
-    icon: "/favicon.gif",
+  verification: {
+    google: "ByJD-t9n4-OgzcpE08hRZseOOcMXHpMLOLkkSEZ-vzQ"
   },
 };
 
