@@ -16,7 +16,7 @@ export function getSortedPostsData() {
 
     return {
       id,
-      ...(matterResult.data as { title: string; date: string; author: string; excerpt: string, tags: string[] }),
+      ...(matterResult.data as { title: string; date: string; author: string; excerpt: string, tags: string[], pinned?: boolean }),
     };
   });
 
@@ -90,4 +90,9 @@ export function getGroupedPostsData() {
   });
 
   return groupedPosts;
+}
+
+export function getPinnedPost() {
+  const allPosts = getSortedPostsData();
+  return allPosts.find(post => post.pinned);
 }
