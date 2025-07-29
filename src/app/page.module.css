@@ -95,6 +95,10 @@
   border-bottom: none !important; 
 }
 
+.pinnedHeader img {
+  align-self: flex-start;
+}
+
 .visitorStats {
   text-align: center;
   background-color: #00000090;
