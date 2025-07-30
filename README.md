@@ -18,6 +18,7 @@ It serves as my personal devlog, diary and a place to share my interests in tech
 ## ✨ Key Features
 
 * **✍️ MDX-Powered Blog:** Posts are written in MDX, allowing for a rich mix of Markdown and custom React components within the content.
+* **🎛️ Git-based CMS:** Content is managed visually through **Keystatic**, which commits changes directly to the GitHub repository via a user-friendly admin panel.
 * **🗂️ Dynamic Content Archives:** Fully functional and paginated archives for both **Tags** and **Dates**, allowing for easy content discovery.
 * **📄 Multi-level Pagination:** Custom pagination components implemented for the main blog, guestbook, and all tag archive pages.
 * **📖 Full-stack Guestbook ("Shoutbox"):** Visitors can leave public messages, which are stored and retrieved from a Supabase (PostgreSQL) database.
@@ -33,7 +34,7 @@ This project is built with a modern, performant, and scalable tech stack:
 * **Framework:** Next.js 14 (App Router)
 * **Language:** TypeScript
 * **UI:** React
-* **Content:** MDX with `rehype-pretty-code` for syntax highlighting
+* **Content & CMS:** **Keystatic** (Git-based) & MDX with `rehype-pretty-code`
 * **Database (Guestbook):** Supabase (PostgreSQL)
 * **KV Store (Counter):** Vercel KV (Upstash Redis)
 * **Styling:** CSS Modules
@@ -74,14 +75,21 @@ To get a local copy up and running, follow these simple steps.
     KV_REST_API_URL=YOUR_KV_REST_API_URL
     KV_REST_API_TOKEN=YOUR_KV_REST_API_TOKEN
     KV_REST_API_READ_ONLY_TOKEN=YOUR_KV_REST_API_READ_ONLY_TOKEN
+    
+    # Keystatic (for GitHub auth on the deployed site)
+    KEYSTATIC_SECRET=CREATE_A_RANDOM_SECRET_STRING
+    KEYSTATIC_GITHUB_CLIENT_ID=YOUR_GITHUB_OAUTH_APP_CLIENT_ID
+    KEYSTATIC_GITHUB_CLIENT_SECRET=YOUR_GITHUB_OAUTH_APP_CLIENT_SECRET
     ```
-    *You can get these values from your Vercel and Supabase project dashboards.*
+    *You can get these values from your Vercel, Supabase, and GitHub project dashboards.*
 
 5.  Run the development server:
     ```sh
     npm run dev
     ```
     The site will be available at `http://localhost:3000`.
+
+6.  Access the CMS by navigating to `http://localhost:3000/keystatic`.
 
 ## 📞 Contact
 
