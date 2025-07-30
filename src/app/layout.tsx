@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "BrunoRGarcia Blog",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={``}>
         <Header />
         {children}
+        <Footer />
         <GoogleAnalytics gaId={process.env.GA_ID!} />
       </body>
     </html>

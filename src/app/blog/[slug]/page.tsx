@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { getAllPostIds } from '../../../../lib/posts';
 import styles from './post.module.css';
 import Link from 'next/link';
+import { FormattedDate } from '@/components/FormattedDate/FormattedDate';
+import { CenteredImage } from '../../../components/CenteredImage/CenteredImage';
 
 export async function generateStaticParams() {
   const paths = getAllPostIds();
@@ -18,7 +20,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <article className={styles.postArticle}>
         <h1 className={styles.postTitle}>{metadata.title}</h1>
         <div className={styles.postMeta}>
-          Published in {metadata.date} by {metadata.author}
+          Published in <FormattedDate dateString={metadata.date} /> by {metadata.author}
         </div>
 
         {metadata.tags && (
@@ -33,7 +35,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           )}
 
         <div className={styles.postContent}>
-          <PostContent />
+          <PostContent components={{ CenteredImage }} />
         </div>
       </article>
     );

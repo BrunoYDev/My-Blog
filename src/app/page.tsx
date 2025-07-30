@@ -7,6 +7,7 @@ import { kv } from "@vercel/kv";
 import { ViewCounterTrigger } from "@/components/ViewCounterTrigger/ViewCounterTrigger";
 import { ColorfulCounter } from "@/components/ColourfulCounter/ColourfulCounter";
 import { LatestShouts } from "@/components/LatestShouts/LatestShouts";
+import { FormattedDate } from "@/components/FormattedDate/FormattedDate";
 
 const getTodayKey = () => {
   const today = new Date().toISOString().split("T")[0];
@@ -73,7 +74,7 @@ export default async function Home() {
                     {pinnedPost.title}
                   </Link>
                 </h3>
-                <small>Posted on: {pinnedPost.date} by {pinnedPost.author}</small>
+                <small>Posted on: <FormattedDate dateString={pinnedPost.date} /> by {pinnedPost.author}</small>
                 <p>{pinnedPost.excerpt}</p>
 
                 <Link href={`/blog/${pinnedPost.id}`} className={styles.readMoreLink}>
@@ -94,7 +95,7 @@ export default async function Home() {
                     <Link href={`/blog/${id}`}>{title}</Link>
                   </h3>
                   <small>
-                    Posted on: {date} by {author}
+                    Posted on: <FormattedDate dateString={date} /> by {author}
                   </small>
                   <p>{excerpt}</p>
 

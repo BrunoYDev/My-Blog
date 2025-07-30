@@ -5,6 +5,7 @@ import styles from '@/app/blog/blog.module.css';
 import { notFound } from 'next/navigation';
 import { PaginationControls } from '@/components/PaginationControls/PaginationControls';
 import Image from 'next/image';
+import { FormattedDate } from '@/components/FormattedDate/FormattedDate';
 
 const POSTS_PER_PAGE = 5;
 
@@ -48,7 +49,7 @@ export default async function PaginatedTagPage({ params }: { params: Promise<{ t
                 <Image src="/images/blueArrowSpinning.gif" width={25} height={15} alt="Blue Arrow GIF" unoptimized />
                 <Link href={`/blog/${id}`} className={styles.postLink}>{title}</Link>
               </h2>
-              <small className={styles.postMeta}>Posted on {date} by {author}</small>
+              <small className={styles.postMeta}>Posted on <FormattedDate dateString={date} /> by {author}</small>
             </header>
             <p className={styles.postExcerpt}>{excerpt}</p>
 
