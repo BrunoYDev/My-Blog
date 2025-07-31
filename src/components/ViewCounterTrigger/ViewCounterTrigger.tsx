@@ -7,7 +7,7 @@ export function ViewCounterTrigger() {
   
   useEffect(() => {
 
-    if (process.env.NODE_ENV !== 'production' || process.env.CI) {
+    if (process.env.NODE_ENV != 'production' || process.env.CI) {
       console.log('Development or build environment detected, skipping view count.');
       return;
     }
