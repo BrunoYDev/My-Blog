@@ -5,11 +5,6 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-
-  env: {
-    CI: process.env.CI,
-  },
-
 };
 
 const withMDX = createMDX({
