@@ -30,6 +30,7 @@ export default function Header() {
             <li><Link href="/blog" onClick={() => setIsOpen(false)}>✧ Blog ✧</Link></li>
             <li><Link href="/guestbook" onClick={() => setIsOpen(false)}>✧ Guestbook ✧</Link></li>
             <li><Link href="/about" onClick={() => setIsOpen(false)}>✧ About ✧</Link></li>
+            <li><Link href="https://brunorgarcia.vercel.app/" onClick={() => setIsOpen(false)}>✧ Portfolio ✧</Link></li>
           </ul>
         </nav>
       </div>
