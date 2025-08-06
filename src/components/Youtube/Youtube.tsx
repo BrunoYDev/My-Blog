@@ -1,0 +1,17 @@
+interface YouTubeProps {
+  videoId: string;
+}
+
+export function YouTube({ videoId }: YouTubeProps) {
+  return (
+    <div className="video-container"> 
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+}

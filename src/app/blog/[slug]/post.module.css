@@ -112,3 +112,20 @@
   background-color: yellow;
   color: black;
 }
+
+.postContent :global(.video-container) {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%; 
+  margin: 20px 0;
+}
+
+.postContent :global(.video-container iframe) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
