@@ -69,6 +69,17 @@ export default config({
                 }),
               },
             }),
+            YouTube: block({
+              label: 'YouTube Video',
+              schema: {
+                videoId: fields.text({
+                  label: 'YouTube Video ID',
+                  description: 'Paste the video ID from the YouTube URL (e.g., dQw4w9WgXcQ)',
+                  validation: { isRequired: true }
+                }),
+              },
+              ContentView: (props) => `📺 YouTube Video ID: ${props.value.videoId}`
+            }),
           },
         }),
       },
