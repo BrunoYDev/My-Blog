@@ -4,6 +4,7 @@ import styles from './post.module.css';
 import Link from 'next/link';
 import { FormattedDate } from '@/components/FormattedDate/FormattedDate';
 import { CenteredImage } from '../../../components/CenteredImage/CenteredImage';
+import { YouTube } from '@/components/Youtube/Youtube';
 
 export async function generateStaticParams() {
   const paths = getAllPostIds();
@@ -35,7 +36,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           )}
 
         <div className={styles.postContent}>
-          <PostContent components={{ CenteredImage }} />
+          <PostContent components={{ CenteredImage, YouTube }} />
         </div>
       </article>
     );
