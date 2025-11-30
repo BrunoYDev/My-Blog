@@ -71,10 +71,10 @@ To get a local copy up and running, follow these simple steps.
     NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 
     # Vercel KV (Redis)
-    KV_URL=YOUR_KV_URL
-    KV_REST_API_URL=YOUR_KV_REST_API_URL
-    KV_REST_API_TOKEN=YOUR_KV_REST_API_TOKEN
-    KV_REST_API_READ_ONLY_TOKEN=YOUR_KV_REST_API_READ_ONLY_TOKEN
+    myblogvisitors_KV_URL=YOUR_KV_URL
+    myblogvisitors_KV_REST_API_URL=YOUR_KV_REST_API_URL
+    myblogvisitors_KV_REST_API_TOKEN=YOUR_KV_REST_API_TOKEN
+    myblogvisitors_KV_REST_API_READ_ONLY_TOKEN=YOUR_KV_REST_API_READ_ONLY_TOKEN
     
     # Keystatic (for GitHub auth on the deployed site)
     KEYSTATIC_SECRET=CREATE_A_RANDOM_SECRET_STRING
