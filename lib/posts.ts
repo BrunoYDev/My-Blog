@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { tags } from '@markdoc/markdoc';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -13,6 +14,13 @@ export function getSortedPostsData() {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     const matterResult = matter(fileContents);
+
+    if(!fileContents.includes("hidden")){
+
+    }
+
+
+    
 
     return {
       id,
@@ -57,13 +65,15 @@ export async function getPostData(slug: string) {
 
 export function getAllTags() {
   const allPosts = getSortedPostsData();
-  const allTags = allPosts.flatMap(post => post.tags || []);
+  const allTags = allPosts.flatMap(post => !post.tags.includes("hidden") ? post.tags : []);
+  console.log(allTags)
   const uniqueTags = [...new Set(allTags)];
   return uniqueTags;
 }
 
 export function getPostsByTag(tag: string) {
   const allPosts = getSortedPostsData();
+  if(tag == "hidden") return
   return allPosts.filter(post => post.tags?.includes(tag));
 }
 
@@ -74,19 +84,21 @@ export function getGroupedPostsData() {
   const groupedPosts: { [year: string]: { [month: string]: typeof allPosts } } = {};
 
   allPosts.forEach(post => {
-    const postDate = new Date(post.date);
-    const year = postDate.getFullYear().toString();
-    const month = (postDate.getMonth() + 1).toString().padStart(2, '0'); 
+    if(!post.tags.includes("hidden")){
+      const postDate = new Date(post.date);
+      const year = postDate.getFullYear().toString();
+      const month = (postDate.getMonth() + 1).toString().padStart(2, '0'); 
 
-    if (!groupedPosts[year]) {
-      groupedPosts[year] = {};
-    }
+      if (!groupedPosts[year]) {
+        groupedPosts[year] = {};
+      }
 
-    if (!groupedPosts[year][month]) {
-      groupedPosts[year][month] = [];
+      if (!groupedPosts[year][month]) {
+        groupedPosts[year][month] = [];
+      }
+      
+      groupedPosts[year][month].push(post);
     }
-    
-    groupedPosts[year][month].push(post);
   });
 
   return groupedPosts;
