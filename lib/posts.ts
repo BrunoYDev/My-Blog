@@ -81,10 +81,10 @@ export async function getPostDataWithHidden(slug: string) {
     return {
       slug,
       content: matterResult.content,
-      hidden: (matterResult.data as any).hidden || false,
+      hidden: (matterResult.data as Record<string, unknown>).hidden as boolean || false,
       ...(matterResult.data as { title: string; date: string; author: string }),
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }

@@ -24,7 +24,7 @@ export default async function PaginatedGuestbookPage({ params }: { params: Promi
   const startIndex = (page - 1) * ENTRIES_PER_PAGE;
   const endIndex = startIndex + ENTRIES_PER_PAGE - 1;
 
-  const { data: entries, error } = await supabase
+  const { data: entries } = await supabase
     .from('guestbook_entries')
     .select('*')
     .order('created_at', { ascending: false })

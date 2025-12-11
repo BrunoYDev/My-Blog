@@ -1,6 +1,7 @@
 'use client';
 
 import ReactMarkdown from 'react-markdown';
+import Image from 'next/image';
 import { FormattedDate } from '@/components/FormattedDate/FormattedDate';
 import { ReactNode, useMemo } from 'react';
 
@@ -12,17 +13,22 @@ interface PostData {
   content: string;
 }
 
-interface MarkdownComponentProps {
-  children?: ReactNode;
-  className?: string;
-  node?: any;
-  href?: string;
-  src?: string;
-  alt?: string;
+interface CenteredImageProps {
+  src: string;
+  alt: string;
+  width: string | number;
+  height: string | number;
+}
+
+interface YouTubeProps {
+  videoId: string;
 }
 
 // Componente para renderizar imagens centralizadas
-function CenteredImageComponent({ src, alt, width, height }: any) {
+function CenteredImageComponent({ src, alt, width, height }: CenteredImageProps) {
+  const widthNum = typeof width === 'string' ? parseInt(width) : width;
+  const heightNum = typeof height === 'string' ? parseInt(height) : height;
+  
   return (
     <div style={{
       display: 'flex',
@@ -30,25 +36,24 @@ function CenteredImageComponent({ src, alt, width, height }: any) {
       marginTop: '1.5rem',
       marginBottom: '1.5rem',
     }}>
-      <img 
+      <Image 
         src={src}
         alt={alt}
-        width={width}
-        height={height}
+        width={widthNum}
+        height={heightNum}
         style={{
           maxWidth: '100%',
           height: 'auto',
           borderRadius: '6px',
           border: '1px solid #e0e0e0'
         }}
-        loading="lazy"
       />
     </div>
   );
 }
 
 // Componente para renderizar vídeos do YouTube
-function YouTubeComponent({ videoId }: any) {
+function YouTubeComponent({ videoId }: YouTubeProps) {
   // Extrai apenas o ID se uma URL completa for passada
   let finalVideoId = videoId;
   if (videoId?.includes('youtube.com') || videoId?.includes('youtu.be')) {
@@ -99,7 +104,7 @@ function processContent(content: string): ReactNode[] {
   
   // Processa CenteredImage
   let match;
-  const matches: Array<{ type: string; start: number; end: number; data: any }> = [];
+  const matches: Array<{ type: 'image' | 'youtube'; start: number; end: number; data: CenteredImageProps | YouTubeProps }> = [];
   
   while ((match = centeredImageRegex.exec(content)) !== null) {
     matches.push({
@@ -142,14 +147,17 @@ function processContent(content: string): ReactNode[] {
       components.push(
         <CenteredImageComponent 
           key={`img-${i}`}
-          {...m.data}
+          src={(m.data as CenteredImageProps).src}
+          alt={(m.data as CenteredImageProps).alt}
+          width={(m.data as CenteredImageProps).width}
+          height={(m.data as CenteredImageProps).height}
         />
       );
     } else if (m.type === 'youtube') {
       components.push(
         <YouTubeComponent 
           key={`yt-${i}`}
-          {...m.data}
+          videoId={(m.data as YouTubeProps).videoId}
         />
       );
     }
@@ -176,44 +184,44 @@ function processContent(content: string): ReactNode[] {
   ];
 }
 
-function getMarkdownComponents(): any {
+function getMarkdownComponents(): Record<string, React.ElementType> {
   return {
-    h1: ({ children }: any) => (
+    h1: ({ children }: { children: ReactNode }) => (
       <h1 style={{ marginTop: '2rem', marginBottom: '1rem', fontSize: '28px', fontWeight: 'bold', color: '#000' }}>
         {children}
       </h1>
     ),
-    h2: ({ children }: any) => (
+    h2: ({ children }: { children: ReactNode }) => (
       <h2 style={{ marginTop: '2rem', marginBottom: '1rem', fontSize: '24px', fontWeight: '600', color: '#000' }}>
         {children}
       </h2>
     ),
-    h3: ({ children }: any) => (
+    h3: ({ children }: { children: ReactNode }) => (
       <h3 style={{ marginTop: '1.5rem', marginBottom: '0.8rem', fontSize: '20px', fontWeight: '600', color: '#111' }}>
         {children}
       </h3>
     ),
-    p: ({ children }: any) => (
+    p: ({ children }: { children: ReactNode }) => (
       <p style={{ marginBottom: '1.2rem', lineHeight: '1.8', color: '#333' }}>
         {children}
       </p>
     ),
-    ul: ({ children }: any) => (
+    ul: ({ children }: { children: ReactNode }) => (
       <ul style={{ marginBottom: '1.5rem', paddingLeft: '2rem', listStyle: 'disc', color: '#333' }}>
         {children}
       </ul>
     ),
-    ol: ({ children }: any) => (
+    ol: ({ children }: { children: ReactNode }) => (
       <ol style={{ marginBottom: '1.5rem', paddingLeft: '2rem', listStyle: 'decimal', color: '#333' }}>
         {children}
       </ol>
     ),
-    li: ({ children }: any) => (
+    li: ({ children }: { children: ReactNode }) => (
       <li style={{ marginBottom: '0.6rem', color: '#333' }}>
         {children}
       </li>
     ),
-    blockquote: ({ children }: any) => (
+    blockquote: ({ children }: { children: ReactNode }) => (
       <blockquote style={{ 
         borderLeft: '4px solid #0070f3', 
         paddingLeft: '1.2rem', 
@@ -229,7 +237,7 @@ function getMarkdownComponents(): any {
         {children}
       </blockquote>
     ),
-    code: ({ children, className }: any) => {
+    code: ({ children, className }: { children: ReactNode; className?: string }) => {
       const isInline = !className;
       if (isInline) {
         return (
@@ -260,7 +268,7 @@ function getMarkdownComponents(): any {
         </code>
       );
     },
-    pre: ({ children }: any) => (
+    pre: ({ children }: { children: ReactNode }) => (
       <pre style={{
         backgroundColor: '#f5f5f5',
         padding: '1.2rem',
@@ -275,28 +283,33 @@ function getMarkdownComponents(): any {
         {children}
       </pre>
     ),
-    img: ({ src, alt }: any) => {
+    img: ({ src, alt }: { src?: string; alt?: string }) => {
       let imageSrc = src || '';
       if (imageSrc && !imageSrc.startsWith('http')) {
         imageSrc = imageSrc;
       }
       return (
-        <img 
-          src={imageSrc}
-          alt={alt || 'Image'}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-            borderRadius: '6px',
-            marginTop: '1.5rem',
-            marginBottom: '1.5rem',
-            border: '1px solid #e0e0e0'
-          }}
-          loading="lazy"
-        />
+        <div style={{
+          marginTop: '1.5rem',
+          marginBottom: '1.5rem',
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src={imageSrc}
+            alt={alt || 'Image'}
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              borderRadius: '6px',
+              border: '1px solid #e0e0e0'
+            }}
+          />
+        </div>
       );
     },
-    a: ({ href, children }: any) => (
+    a: ({ href, children }: { href?: string; children: ReactNode }) => (
       <a 
         href={href}
         style={{
@@ -315,12 +328,12 @@ function getMarkdownComponents(): any {
         {children}
       </a>
     ),
-    strong: ({ children }: any) => (
+    strong: ({ children }: { children: ReactNode }) => (
       <strong style={{ fontWeight: '600', color: '#000' }}>
         {children}
       </strong>
     ),
-    em: ({ children }: any) => (
+    em: ({ children }: { children: ReactNode }) => (
       <em style={{ fontStyle: 'italic', color: '#555' }}>
         {children}
       </em>
