@@ -1,5 +1,4 @@
 import { config, fields, collection } from "@keystatic/core";
-
 import { block } from "@keystatic/core/content-components";
 
 export default config({
@@ -31,6 +30,10 @@ export default config({
         excerpt: fields.text({ label: "Excerpt", multiline: true }),
         pinned: fields.checkbox({
           label: "Is this the Pinned Post?",
+          defaultValue: false,
+        }),
+        hidden: fields.checkbox({
+          label: "Hide this post",
           defaultValue: false,
         }),
         tags: fields.array(fields.text({ label: "Tag" }), {

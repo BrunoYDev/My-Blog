@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-export function getSortedPostsData() {
+export function getSortedPostsData(includeHidden: boolean = false) {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.mdx$/, '');
@@ -16,18 +16,23 @@ export function getSortedPostsData() {
 
     return {
       id,
-      ...(matterResult.data as { title: string; date: string; author: string; excerpt: string, tags: string[], pinned?: boolean }),
+      ...(matterResult.data as { title: string; date: string; author: string; excerpt: string, tags: string[], pinned?: boolean, hidden?: boolean }),
     };
   });
 
-  return allPostsData.sort((a, b) => {
+  const sortedPosts = allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
       return -1;
     }
+  });
 
-  }); 
+  if (!includeHidden) {
+    return sortedPosts.filter(post => !post.hidden);
+  }
+
+  return sortedPosts;
 }
 
 export function getAllPostIds() {
@@ -65,6 +70,23 @@ export function getAllTags() {
 export function getPostsByTag(tag: string) {
   const allPosts = getSortedPostsData();
   return allPosts.filter(post => post.tags?.includes(tag));
+}
+
+export async function getPostDataWithHidden(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+  try {
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
+
+    return {
+      slug,
+      content: matterResult.content,
+      hidden: (matterResult.data as any).hidden || false,
+      ...(matterResult.data as { title: string; date: string; author: string }),
+    };
+  } catch (error) {
+    return null;
+  }
 }
 
 

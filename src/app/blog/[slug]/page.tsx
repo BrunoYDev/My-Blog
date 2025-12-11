@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getAllPostIds } from '../../../../lib/posts';
+import { getAllPostIds, getPostDataWithHidden } from '../../../../lib/posts';
 import styles from './post.module.css';
 import Link from 'next/link';
 import { FormattedDate } from '@/components/FormattedDate/FormattedDate';
@@ -15,6 +15,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
  const { slug } = await params;
 
   try {
+    const postData = await getPostDataWithHidden(slug);
+
+    if (!postData || postData.hidden) {
+      notFound();
+    }
+
     const { default: PostContent, frontmatter: metadata } = await import(`../../../../posts/${slug}.mdx`);
 
     return (
