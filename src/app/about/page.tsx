@@ -29,35 +29,47 @@ export default function AboutPage() {
         />
         <div className={styles.introText}>
           <h1>Bruno R Garcia</h1>
-          <p className={styles.tagline}>Digital Time Traveler & Backend Engineer</p>
+          <p className={styles.tagline}>
+            Digital Time Traveler & Backend Engineer
+          </p>
         </div>
       </section>
 
       <DividerGif src="/images/powerLine.gif" />
 
       <section className={styles.widgetBox}>
-        <h2>Who am I
-          <Image src="/images/questionMark.gif" width={40} height={25} alt="QUESTION GIF" unoptimized />
+        <h2>
+          Who am I
+          <Image
+            src="/images/questionMark.gif"
+            width={40}
+            height={25}
+            alt="QUESTION GIF"
+            unoptimized
+          />
         </h2>
         <p>
-          Born in 2003, I&apos;m a developer who&apos;s nostalgic for an era I never
-          really lived in. My first real contact with this kind of aesthetic
-          wasn&apos;t the chaotic web of the early 2000s, but the glossy, optimistic
-          world of Windows Vista and Windows 7, where the Frutiger Aero style
-          reigned supreme.
+          Born in 2003, I&apos;m a developer who&apos;s nostalgic for an era I
+          never really lived in. My first real contact with this kind of
+          aesthetic wasn&apos;t the chaotic web of the early 2000s, but the
+          glossy, optimistic world of Windows Vista and Windows 7, where the
+          Frutiger Aero style reigned supreme.
         </p>
         <p>
-          I&apos;m primarily a backend developer—I love building the logic and the
-          engines that make things run. Styling and frontend aren&apos;t my main
-          passion, but I have a deep appreciation for the Y2K aesthetic because
-          it represents a time when every website had its own unique soul, long
-          before social media templates made every page look the same. I&apos;m here
-          for the weird, the wonderful, and the wildly different backgrounds.
+          I am primarily a game developer focusing on the Godot engine. I love
+          building the logic and the systems that make games run. I am
+          constantly refining my skills with the goal of becoming an engine
+          engineer in the future. While styling isn't my main passion, I have a
+          deep appreciation for the Y2K aesthetic because it represents a time
+          when every website had its own unique soul, long before social media
+          templates made every page look the same. I'm here for the weird, the
+          wonderful, and the wildly different backgrounds.
         </p>
         <p>
-          While I&apos;m actively looking for my first professional role as a
-          developer, I spend my time creating my own worlds by developing games,
-          which you can find over on my{" "}
+          Currently, I am actively looking for my first professional role as a
+          developer. In the meantime, I spend my time applying what I learn in
+          my Computer Science degree to create my own worlds and experiment with
+          game mechanics. You can find my latest projects over on my{" "}
           <a href="https://ykkos2.itch.io/" target="_blank">
             itch.io
           </a>{" "}
@@ -84,7 +96,7 @@ export default function AboutPage() {
             src="/images/eternalOzzy.gif"
             alt="Decorative GIF"
             width={300}
-            height={180} 
+            height={180}
             unoptimized
             className={styles.interestsGif}
           />
@@ -105,13 +117,13 @@ export default function AboutPage() {
               a lot of animated GIFs.
             </p>
             <p>
-              You might notice I&apos;m from Brazil, but the site is primarily in
-              English—mostly because I feel like it. That said, please feel free
-              to sign the Guestbook in whatever language you&apos;re comfortable
-              with, be it Portuguese, English, or anything in between. I have no
-              plans to add a language selector; the goal is to keep this space
-              simple, stylish, and a little bit chaotic, just like the old web
-              was meant to be.
+              You might notice I&apos;m from Brazil, but the site is primarily
+              in English mostly because I feel like it. That said, please feel
+              free to sign the Guestbook in whatever language you&apos;re
+              comfortable with, be it Portuguese, English, or anything in
+              between. I have no plans to add a language selector; the goal is
+              to keep this space simple, stylish, and a little bit chaotic, just
+              like the old web was meant to be.
             </p>
           </div>
 
