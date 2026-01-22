@@ -59,10 +59,10 @@ export default function AboutPage() {
           I am primarily a game developer focusing on the Godot engine. I love
           building the logic and the systems that make games run. I am
           constantly refining my skills with the goal of becoming an engine
-          engineer in the future. While styling isn't my main passion, I have a
+          engineer in the future. While styling isn&apos;t my main passion, I have a
           deep appreciation for the Y2K aesthetic because it represents a time
           when every website had its own unique soul, long before social media
-          templates made every page look the same. I'm here for the weird, the
+          templates made every page look the same. I&apos;m here for the weird, the
           wonderful, and the wildly different backgrounds.
         </p>
         <p>
