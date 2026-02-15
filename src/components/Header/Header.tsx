@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.css';
+import GoogleTranslate from '@/components/GoogleTranslate/GoogleTranslate';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +15,9 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerContent}>
-        
-        <button 
-          className={styles.hamburger} 
+
+        <button
+          className={styles.hamburger}
           onClick={toggleMenu}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
@@ -33,6 +34,8 @@ export default function Header() {
             <li><Link href="https://brunorgarcia.vercel.app/" onClick={() => setIsOpen(false)}>✧ Portfolio ✧</Link></li>
           </ul>
         </nav>
+
+        <GoogleTranslate />
       </div>
     </header>
   );

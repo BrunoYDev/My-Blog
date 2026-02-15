@@ -42,3 +42,12 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Google Translate - hide banner and reset body offset */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}

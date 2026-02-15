@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 3px 6px;
+  border: 2px outset #c0c0c0;
+  background-color: #a0a0a0;
+  color: white;
+  cursor: pointer;
+}
+
+.select option {
+  background-color: #000080;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-right: 10px;
+  }
+
+  .select {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+}

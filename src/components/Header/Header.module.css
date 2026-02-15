@@ -12,6 +12,7 @@
   max-width: 1200px;
   margin: 0 auto;
   height: 60px;
+  gap: 15px;
 }
 
 .logo {

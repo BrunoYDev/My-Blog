@@ -5,9 +5,18 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "BrunoRGarcia Blog",
+  metadataBase: new URL("https://brunorgarciablog.vercel.app"),
+  title: {
+    default: "BrunoRGarcia Blog",
+    template: "%s | BrunoRGarcia Blog",
+  },
   description:
-    "Welcome to my blog, my personal space on the internet where I share my thoughts, experiences, and projects.",
+    "Bruno R Garcia's personal blog about game dev, the old web, and random stuff.",
+  openGraph: {
+    siteName: "BrunoRGarcia Blog",
+    type: "website",
+    locale: "en_US",
+  },
   verification: {
     google: "ByJD-t9n4-OgzcpE08hRZseOOcMXHpMLOLkkSEZ-vzQ"
   },

@@ -56,9 +56,9 @@ export default async function Home() {
           </section>
 
           <p className={styles.introText}>
-            Hey there, I am Bruno. This is my personal corner of the web—a
-            devlog, a time capsule, and a lab for my web experiments. Glad you
-            stopped by. Feel free to look around.
+            Hey there, I am Bruno. This is my little spot on the web where I
+            post about dev stuff, games, and whatever else is on my mind. Have a
+            look around.
           </p>
 
           {pinnedPost && (
@@ -127,8 +127,8 @@ export default async function Home() {
               alt="Riddle Reality GIF"
             />
             <p>
-              Developer by day, web archaeologist by night. Passionate about the
-              creative energy of the old web.
+              Developer who likes to dig into old web stuff. I make games and
+              break things on the internet.
               <Link href="/about" className={styles.moreInfoLink}>
                 More info...
               </Link>

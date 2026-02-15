@@ -30,7 +30,7 @@ export default function AboutPage() {
         <div className={styles.introText}>
           <h1>Bruno R Garcia</h1>
           <p className={styles.tagline}>
-            Digital Time Traveler & Backend Engineer
+            Game Developer & Old Web Enthusiast
           </p>
         </div>
       </section>
@@ -49,27 +49,25 @@ export default function AboutPage() {
           />
         </h2>
         <p>
-          Born in 2003, I&apos;m a developer who&apos;s nostalgic for an era I
-          never really lived in. My first real contact with this kind of
-          aesthetic wasn&apos;t the chaotic web of the early 2000s, but the
-          glossy, optimistic world of Windows Vista and Windows 7, where the
-          Frutiger Aero style reigned supreme.
+          Born in 2003, I&apos;m a developer who&apos;s weirdly nostalgic for an
+          era I never actually lived in. My first contact with this kind of
+          aesthetic wasn&apos;t the chaotic web of the early 2000s though, it
+          was the glossy world of Windows Vista and Windows 7, the whole
+          Frutiger Aero thing.
         </p>
         <p>
-          I am primarily a game developer focusing on the Godot engine. I love
-          building the logic and the systems that make games run. I am
-          constantly refining my skills with the goal of becoming an engine
-          engineer in the future. While styling isn&apos;t my main passion, I have a
-          deep appreciation for the Y2K aesthetic because it represents a time
-          when every website had its own unique soul, long before social media
-          templates made every page look the same. I&apos;m here for the weird, the
-          wonderful, and the wildly different backgrounds.
+          I mostly work on games using the Godot engine. I like building the
+          logic and systems that make things tick, and I want to eventually
+          get into engine engineering. I&apos;m not really a frontend guy, but I
+          think the Y2K aesthetic is cool because back then every website
+          actually looked different. Before social media turned everything
+          into the same template.
         </p>
         <p>
-          Currently, I am actively looking for my first professional role as a
-          developer. In the meantime, I spend my time applying what I learn in
-          my Computer Science degree to create my own worlds and experiment with
-          game mechanics. You can find my latest projects over on my{" "}
+          Right now I&apos;m looking for my first job as a developer. Until
+          then I&apos;m just working on my own stuff, applying what I learn in
+          my CS degree to make games and mess around with mechanics. You can
+          check out my projects on{" "}
           <a href="https://ykkos2.itch.io/" target="_blank">
             itch.io
           </a>{" "}
@@ -110,20 +108,16 @@ export default function AboutPage() {
         <div className={styles.siteInfo}>
           <div className={styles.siteInfoText}>
             <p>
-              This website is my personal digital garden and a love letter to
-              the early internet. It&apos;s built with modern tech like Next.js,
-              React, and Vercel, but with a soul firmly planted in the Y2K
-              aesthetic. Expect to find code experiments, personal thoughts, and
-              a lot of animated GIFs.
+              This is my personal site and kind of a throwback to the early
+              internet. It&apos;s built with Next.js, React, and Vercel, but
+              styled to look like something from the Y2K era. You&apos;ll find
+              dev stuff, personal thoughts, and way too many animated GIFs.
             </p>
             <p>
-              You might notice I&apos;m from Brazil, but the site is primarily
-              in English mostly because I feel like it. That said, please feel
-              free to sign the Guestbook in whatever language you&apos;re
-              comfortable with, be it Portuguese, English, or anything in
-              between. I have no plans to add a language selector; the goal is
-              to keep this space simple, stylish, and a little bit chaotic, just
-              like the old web was meant to be.
+              I&apos;m from Brazil but I write in English here. There&apos;s
+              a language selector up top if you want to read in Portuguese
+              or German. The Guestbook is open for any language though, write
+              in whatever you want.
             </p>
           </div>
 
