@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://brunorgarciablog.vercel.app
+
+# Sitemaps
+Sitemap: https://brunorgarciablog.vercel.app/sitemap.xml
