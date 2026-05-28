@@ -7,13 +7,13 @@ import { Footer } from "@/components/Footer/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://brunorgarciablog.vercel.app"),
   title: {
-    default: "BrunoRGarcia Blog",
-    template: "%s | BrunoRGarcia Blog",
+    default: "BrunoRGB",
+    template: "%s | BrunoRGB",
   },
   description:
     "Blog pessoal do Bruno R Garcia sobre game dev, a velha web e coisas aleatórias.",
   openGraph: {
-    siteName: "BrunoRGarcia Blog",
+    siteName: "BrunoRGB",
     type: "website",
     locale: "pt_BR",
   },
