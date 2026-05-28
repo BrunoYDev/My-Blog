@@ -9,16 +9,16 @@ export default function NotFound() {
         <p className={styles.errorCode}>
           <span>ERROR</span>
         </p>
-        <p>A fatal exception 404 has occurred at 0028:C0011E36 in VXD VMM(01) + 00010E36.</p>
-        <p>The requested page could not be found in the server&apos;s memory banks. It may have been moved, deleted, or it might be hiding in another castle.</p>
+        <p>Uma exceção fatal 404 ocorreu em 0028:C0011E36 no VXD VMM(01) + 00010E36.</p>
+        <p>A página solicitada não foi encontrada na memória do servidor. Ela pode ter sido movida, excluída ou talvez esteja se escondendo em outro castelo.</p>
         <br />
-        <p>* Press any key to terminate the current application.</p>
-        <p>* Press CTRL+ALT+DEL to restart your browser. You will lose any unsaved data in all applications.</p>
-        <p>* Or, try a less dramatic solution:</p>
+        <p>* Pressione qualquer tecla para encerrar a aplicação atual.</p>
+        <p>* Pressione CTRL+ALT+DEL para reiniciar o navegador. Você perderá qualquer dado não salvo em todos os aplicativos.</p>
+        <p>* Ou, tente uma solução menos dramática:</p>
         <br/>
         <p className={styles.returnLinkContainer}>
           <Link href="/" className={styles.returnLink}>
-            &gt; Return to Home
+            &gt; Voltar para o início
           </Link>
           <span className={styles.blinkingCursor}>_</span>
         </p>

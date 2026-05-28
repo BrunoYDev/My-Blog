@@ -32,9 +32,9 @@ export default async function PaginatedGuestbookPage({ params }: { params: Promi
 
   return (
     <section className={styles.container}>
-      <h1 className={styles.title}>Shoutbox! (Page {page})</h1>
+      <h1 className={styles.title}>Livro de Visitas! (Página {page})</h1>
 
-      <Image src="/images/powerLine.gif" style={{ maxWidth: '100%' }} width={760} height={80} alt="Divider GIF" unoptimized />
+      <Image src="/images/powerLine.gif" style={{ maxWidth: '100%' }} width={760} height={80} alt="GIF divisor" unoptimized />
 
       <div className={styles.entriesList}>
         {entries?.map(entry => (
@@ -43,7 +43,7 @@ export default async function PaginatedGuestbookPage({ params }: { params: Promi
             <div className={styles.entryFooter}>
               <span className={styles.entryAuthor}>- {entry.username}</span>
               <time className={styles.entryDate}>
-                {new Date(entry.created_at).toLocaleString('en-US', { dateStyle: 'short', timeStyle: 'short' })}
+                {new Date(entry.created_at).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
               </time>
             </div>
           </div>

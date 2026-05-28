@@ -15,14 +15,14 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
       <aside className={styles.sidebar}>
         
         <details className={styles.detailsSection} open>
-          <summary className={styles.summary}>📂 Posts By Data</summary>
+          <summary className={styles.summary}>📂 Posts por data</summary>
           {sortedYears.map(year => (
             <details key={year} className={styles.yearDetails}>
               <summary className={styles.yearSummary}> {year}</summary>
               {Object.keys(groupedPosts[year]).sort((a, b) => b.localeCompare(a)).map(month => {
                 const postsInMonth = groupedPosts[year][month];
                 
-                const monthName = new Date(`${year}-${month}-01T12:00:00Z`).toLocaleString('en', { month: 'long' });
+                const monthName = new Date(`${year}-${month}-01T12:00:00Z`).toLocaleString('pt-BR', { month: 'long' });
                 
                 return (
                   <details key={month} className={styles.monthDetails}>
@@ -42,7 +42,7 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         </details>
 
         <details className={styles.detailsSection} open>
-          <summary className={styles.summary}>🏷️ Tags Navigation</summary>
+          <summary className={styles.summary}>🏷️ Navegação por tags</summary>
           <div className={styles.tagCloud}>
             {allTags.map(tag => (
               <Link key={tag} href={`/tags/${tag}`} className={styles.tag}>

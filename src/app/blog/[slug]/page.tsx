@@ -27,7 +27,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <article className={styles.postArticle}>
         <h1 className={styles.postTitle}>{metadata.title}</h1>
         <div className={styles.postMeta}>
-          Published in <FormattedDate dateString={metadata.date} /> by {metadata.author}
+          Publicado em <FormattedDate dateString={metadata.date} /> por {metadata.author}
         </div>
 
         {metadata.tags && (

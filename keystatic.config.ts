@@ -16,24 +16,24 @@ export default config({
         },
   collections: {
     posts: collection({
-      label: "Posts",
+      label: "Publicações",
       slugField: "title",
       path: "posts/**",
       format: { contentField: "content" },
       schema: {
-        title: fields.slug({ name: { label: "Title" } }),
+        title: fields.slug({ name: { label: "Título" } }),
         date: fields.date({
-          label: "Publish Date",
+          label: "Data de publicação",
           validation: { isRequired: true },
         }),
-        author: fields.text({ label: "Author" }),
-        excerpt: fields.text({ label: "Excerpt", multiline: true }),
+        author: fields.text({ label: "Autor" }),
+        excerpt: fields.text({ label: "Resumo", multiline: true }),
         pinned: fields.checkbox({
-          label: "Is this the Pinned Post?",
+          label: "Este é o post fixado?",
           defaultValue: false,
         }),
         hidden: fields.checkbox({
-          label: "Hide this post",
+          label: "Ocultar este post",
           defaultValue: false,
         }),
         tags: fields.array(fields.text({ label: "Tag" }), {
@@ -41,7 +41,7 @@ export default config({
           itemLabel: (props) => props.value,
         }),
         content: fields.mdx({
-          label: "Body Content",
+          label: "Conteúdo",
           options: {
             image: {
               directory: "public/postImages",
@@ -50,38 +50,38 @@ export default config({
           },
           components: {
             CenteredImage: block({
-              label: "Centered Image",
+              label: "Imagem centralizada",
               schema: {
                 src: fields.image({
-                  label: "Image File",
+                  label: "Arquivo de imagem",
                   directory: "public/postImages/",
                   publicPath: "/postImages/",
                   validation: { isRequired: true },
                 }),
                 alt: fields.text({
-                  label: "Alt Text",
+                  label: "Texto alternativo",
                   validation: { isRequired: true },
                 }),
                 width: fields.number({
-                  label: "Width",
+                  label: "Largura",
                   validation: { isRequired: true },
                 }),
                 height: fields.number({
-                  label: "Height",
+                  label: "Altura",
                   validation: { isRequired: true },
                 }),
               },
             }),
             YouTube: block({
-              label: 'YouTube Video',
+              label: 'Vídeo do YouTube',
               schema: {
                 videoId: fields.text({
-                  label: 'YouTube Video ID',
-                  description: 'Paste the video ID from the YouTube URL (e.g., dQw4w9WgXcQ)',
+                  label: 'ID do vídeo do YouTube',
+                  description: 'Cole o ID do vídeo a partir da URL do YouTube (ex.: dQw4w9WgXcQ)',
                   validation: { isRequired: true }
                 }),
               },
-              ContentView: (props) => `📺 YouTube Video ID: ${props.value.videoId}`
+              ContentView: (props) => `📺 ID do vídeo do YouTube: ${props.value.videoId}`
             }),
           },
         }),

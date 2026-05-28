@@ -62,7 +62,7 @@ export async function PostPreviewServer({
           color: '#666',
           marginBottom: '1rem'
         }}>
-          Published in <FormattedDate dateString={date} /> by {author}
+          Publicado em <FormattedDate dateString={date} /> por {author}
         </div>
 
         {tags && tags.length > 0 && (

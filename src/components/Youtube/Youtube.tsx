@@ -7,7 +7,7 @@ export function YouTube({ videoId }: YouTubeProps) {
     <div className="video-container"> 
       <iframe
         src={`https://www.youtube.com/embed/${videoId}?rel=0`}
-        title="YouTube video player"
+        title="Reprodutor de vídeo do YouTube"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen

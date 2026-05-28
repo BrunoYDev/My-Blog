@@ -22,21 +22,21 @@ export default async function TagIndexPage({ params }: { params: Promise<{ tag: 
 
   return (
     <section className={styles.blogSection}>
-      <h1 className={styles.pageTitle}>Posts tagged with: #{tag}</h1>
+      <h1 className={styles.pageTitle}>Posts marcados com: #{tag}</h1>
       <div className={styles.postList}>
         {postsToShow.map(({ id, date, title, excerpt, author }) => (
           <article key={id} className={styles.postSnippet}>
             <header>
               <h2 className={styles.postTitle}>
-                <Image src="/images/blueArrowSpinning.gif" width={25} height={15} alt="Blue Arrow GIF" unoptimized />
+                <Image src="/images/blueArrowSpinning.gif" width={25} height={15} alt="GIF de seta azul" unoptimized />
                 <Link href={`/blog/${id}`} className={styles.postLink}>{title}</Link>
               </h2>
-              <small className={styles.postMeta}>Posted on <FormattedDate dateString={date} /> by {author}</small>
+              <small className={styles.postMeta}>Publicado em <FormattedDate dateString={date} /> por {author}</small>
             </header>
             <p className={styles.postExcerpt}>{excerpt}</p>
 
             <Link href={`/blog/${id}`} className={styles.readMoreLink}>
-              Read Complete Post »
+              Ler post completo »
             </Link>
           </article>
         ))}

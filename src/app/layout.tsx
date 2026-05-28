@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     template: "%s | BrunoRGarcia Blog",
   },
   description:
-    "Bruno R Garcia's personal blog about game dev, the old web, and random stuff.",
+    "Blog pessoal do Bruno R Garcia sobre game dev, a velha web e coisas aleatórias.",
   openGraph: {
     siteName: "BrunoRGarcia Blog",
     type: "website",
-    locale: "en_US",
+    locale: "pt_BR",
   },
   verification: {
     google: "ByJD-t9n4-OgzcpE08hRZseOOcMXHpMLOLkkSEZ-vzQ"
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={``}>
         <Header />
         {children}

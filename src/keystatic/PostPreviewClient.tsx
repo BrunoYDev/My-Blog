@@ -74,21 +74,21 @@ function YouTubeComponent({ videoId }: YouTubeProps) {
       marginTop: '1.5rem',
       marginBottom: '1.5rem',
     }}>
-      <iframe
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
+        <iframe
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
           width: '100%',
           height: '100%',
           border: 'none',
           borderRadius: '6px'
         }}
         src={`https://www.youtube.com/embed/${finalVideoId}`}
-        title="YouTube video"
-        allowFullScreen
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      />
+          title="Vídeo do YouTube"
+          allowFullScreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        />
     </div>
   );
 }
@@ -298,7 +298,7 @@ function getMarkdownComponents(): Record<string, React.ElementType> {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={imageSrc}
-            alt={alt || 'Image'}
+            alt={alt || 'Imagem'}
             style={{
               maxWidth: '100%',
               height: 'auto',
@@ -346,7 +346,11 @@ export function PostPreviewClient({ data }: { data: PostData }) {
     return processContent(data.content || '');
   }, [data.content]);
 
-  if (!data.content || data.content === 'No content yet...') {
+  if (
+    !data.content ||
+    data.content === 'No content yet...' ||
+    data.content === 'Nenhum conteúdo ainda...'
+  ) {
     return (
       <div style={{
         padding: '2rem',
@@ -379,14 +383,14 @@ export function PostPreviewClient({ data }: { data: PostData }) {
           marginTop: '0',
           color: '#1a1a1a',
         }}>
-          {data.title || 'Untitled'}
+          {data.title || 'Sem título'}
         </h1>
         <div style={{
           fontSize: '14px',
           color: '#555',
           marginBottom: '1.5rem',
         }}>
-          Published in <FormattedDate dateString={data.date} /> by <strong style={{ color: '#333' }}>{data.author}</strong>
+          Publicado em <FormattedDate dateString={data.date} /> por <strong style={{ color: '#333' }}>{data.author}</strong>
         </div>
 
         {data.tags && data.tags.length > 0 && (

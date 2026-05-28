@@ -25,7 +25,7 @@ export function ColorfulCounter({ count }: ColorfulCounterProps) {
   const [coloredDigits, setColoredDigits] = useState<React.ReactNode[] | null>(null);
 
   useEffect(() => {
-    const digits = count.toLocaleString('en-US').split('');
+    const digits = count.toLocaleString('pt-BR').split('');
     
     const newColoredDigits = digits.map((digit, index) => (
       <span key={index} style={{ color: getRandomColor()}}>
@@ -38,7 +38,7 @@ export function ColorfulCounter({ count }: ColorfulCounterProps) {
   }, [count]);
 
   if (!coloredDigits) {
-    return <>{count.toLocaleString('en-US')}</>;
+    return <>{count.toLocaleString('pt-BR')}</>;
   }
 
   return <>{coloredDigits}</>;

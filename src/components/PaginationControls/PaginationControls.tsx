@@ -18,17 +18,17 @@ export function PaginationControls({ currentPage, totalPages, basePath }: Pagina
     <nav className={styles.container}>
       {currentPage > 1 ? (
         <Link href={prevPageUrl} className={styles.button}>
-          « Previous Page
+          « Página anterior
         </Link>
       ) : <div />}
 
       <span className={styles.pageIndicator}>
-        Page {currentPage} of {totalPages}
+        Página {currentPage} de {totalPages}
       </span>
 
       {currentPage < totalPages ? (
         <Link href={nextPageUrl} className={styles.button}>
-          Next Page »
+          Próxima página »
         </Link>
       ) : <div />}
     </nav>

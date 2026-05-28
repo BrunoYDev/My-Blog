@@ -23,31 +23,15 @@ declare global {
 }
 
 const LANGUAGES = [
-  { value: 'en', label: 'English' },
-  { value: 'pt', label: 'Portuguese' },
-  { value: 'de', label: 'German' },
+  { value: 'pt', label: 'Português' },
+  { value: 'en', label: 'Inglês' },
+  { value: 'de', label: 'Alemão' },
 ];
 
-const HAS_VISITED_KEY = 'gt_visited';
-
 function getStoredLang(): string {
-  // googtrans cookie format: /en/pt or /auto/de
+  // googtrans cookie format: /pt/en or /auto/de
   const match = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
-  return match ? match[1] : 'en';
-}
-
-function isFirstVisit(): boolean {
-  return !localStorage.getItem(HAS_VISITED_KEY);
-}
-
-function markVisited() {
-  localStorage.setItem(HAS_VISITED_KEY, '1');
-}
-
-function detectBrowserLang(): string | null {
-  const lang = navigator.language || '';
-  if (lang.startsWith('pt')) return 'pt';
-  return null;
+  return match ? match[1] : 'pt';
 }
 
 function clearGoogTransCookie() {
@@ -68,7 +52,7 @@ function clearGoogTransCookie() {
 
 export default function GoogleTranslate() {
   const selectRef = useRef<HTMLSelectElement>(null);
-  const [currentLang, setCurrentLang] = useState('en');
+  const [currentLang, setCurrentLang] = useState('pt');
 
   const removeBanner = useCallback(() => {
     document.querySelectorAll('iframe').forEach((iframe) => {
@@ -91,36 +75,11 @@ export default function GoogleTranslate() {
     document.body.style.top = '0px';
   }, []);
 
-  // Sync dropdown with cookie on mount, auto-detect on first visit
+  // Sync dropdown with cookie on mount
   useEffect(() => {
     const stored = getStoredLang();
-
-    if (isFirstVisit()) {
-      markVisited();
-      const detected = detectBrowserLang();
-      if (detected) {
-        setCurrentLang(detected);
-        // Wait for Google Translate to initialize, then trigger translation
-        const waitForGoogle = setInterval(() => {
-          const googleCombo = document.querySelector<HTMLSelectElement>(
-            '.goog-te-combo'
-          );
-          if (googleCombo) {
-            clearInterval(waitForGoogle);
-            googleCombo.value = detected;
-            googleCombo.dispatchEvent(new Event('change'));
-            setTimeout(removeBanner, 100);
-            setTimeout(removeBanner, 500);
-          }
-        }, 200);
-        // Stop trying after 5 seconds
-        setTimeout(() => clearInterval(waitForGoogle), 5000);
-        return;
-      }
-    }
-
     setCurrentLang(stored);
-  }, [removeBanner]);
+  }, []);
 
   useEffect(() => {
     if (document.getElementById('google-translate-script')) return;
@@ -129,8 +88,8 @@ export default function GoogleTranslate() {
       if (window.google?.translate) {
         new window.google.translate.TranslateElement(
           {
-            pageLanguage: 'en',
-            includedLanguages: 'en,pt,de',
+            pageLanguage: 'pt',
+            includedLanguages: 'pt,en,de',
             layout: 0,
             autoDisplay: false,
           },
@@ -159,7 +118,7 @@ export default function GoogleTranslate() {
     const lang = e.target.value;
     setCurrentLang(lang);
 
-    if (lang === 'en') {
+    if (lang === 'pt') {
       // Restore to original: clear cookie and reload
       clearGoogTransCookie();
       window.location.reload();
@@ -187,7 +146,7 @@ export default function GoogleTranslate() {
         className={styles.select}
         onChange={handleChange}
         value={currentLang}
-        aria-label="Translate page"
+        aria-label="Traduzir página"
       >
         {LANGUAGES.map((lang) => (
           <option key={lang.value} value={lang.value}>

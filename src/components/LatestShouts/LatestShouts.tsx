@@ -12,11 +12,11 @@ export async function LatestShouts() {
 
   if (error) {
     console.error('Error fetching latest shouts:', error);
-    return <p>Could not load shouts.</p>;
+    return <p>Não foi possível carregar os recados.</p>;
   }
 
   if (!entries || entries.length === 0) {
-    return <p>Be the first to sign the guestbook!</p>;
+    return <p>Seja o primeiro a assinar o livro de visitas!</p>;
   }
 
   return (
@@ -28,7 +28,7 @@ export async function LatestShouts() {
         </div>
       ))}
       <Link href="/guestbook" className={styles.linkToGuestbook}>
-        Leave your own message »
+        Deixe seu recado »
       </Link>
     </div>
   );

@@ -7,7 +7,7 @@ function DividerGif({ src }: { src: string }) {
     <div className={styles.divider}>
       <Image
         src={src}
-        alt="decorative divider"
+        alt="divisor decorativo"
         width={760}
         height={70}
         unoptimized
@@ -22,7 +22,7 @@ export default function AboutPage() {
       <section className={styles.intro}>
         <Image
           src="/images/me.jpg"
-          alt="Me, literrally"
+          alt="Eu, literalmente"
           width={150}
           height={150}
           className={styles.avatar}
@@ -30,7 +30,7 @@ export default function AboutPage() {
         <div className={styles.introText}>
           <h1>Bruno R Garcia</h1>
           <p className={styles.tagline}>
-            Game Developer & Old Web Enthusiast
+            Desenvolvedor de jogos e entusiasta da web antiga
           </p>
         </div>
       </section>
@@ -39,39 +39,39 @@ export default function AboutPage() {
 
       <section className={styles.widgetBox}>
         <h2>
-          Who am I
+          Quem sou eu
           <Image
             src="/images/questionMark.gif"
             width={40}
             height={25}
-            alt="QUESTION GIF"
+            alt="GIF de interrogação"
             unoptimized
           />
         </h2>
         <p>
-          Born in 2003, I&apos;m a developer who&apos;s weirdly nostalgic for an
-          era I never actually lived in. My first contact with this kind of
-          aesthetic wasn&apos;t the chaotic web of the early 2000s though, it
-          was the glossy world of Windows Vista and Windows 7, the whole
-          Frutiger Aero thing.
+          Nascido em 2003, sou um desenvolvedor que sente uma nostalgia meio
+          estranha por uma era que eu nem vivi de verdade. Meu primeiro contato
+          com essa estética não foi a web caótica do começo dos anos 2000; foi o
+          mundo polido do Windows Vista e do Windows 7, todo aquele lance do
+          Frutiger Aero.
         </p>
         <p>
-          I mostly work on games using the Godot engine. I like building the
-          logic and systems that make things tick, and I want to eventually
-          get into engine engineering. I&apos;m not really a frontend guy, but I
-          think the Y2K aesthetic is cool because back then every website
-          actually looked different. Before social media turned everything
-          into the same template.
+          Eu trabalho principalmente com jogos usando a engine Godot. Gosto de
+          construir a lógica e os sistemas que fazem as coisas funcionarem, e
+          quero eventualmente entrar em engenharia de engines. Não sou muito de
+          frontend, mas acho a estética Y2K legal porque naquela época cada site
+          realmente era diferente, antes das redes sociais transformarem tudo no
+          mesmo template.
         </p>
         <p>
-          Right now I&apos;m looking for my first job as a developer. Until
-          then I&apos;m just working on my own stuff, applying what I learn in
-          my CS degree to make games and mess around with mechanics. You can
-          check out my projects on{" "}
+          No momento estou procurando meu primeiro emprego como desenvolvedor.
+          Até lá, sigo trabalhando nas minhas próprias coisas, aplicando o que
+          aprendo na graduação de Ciência da Computação para fazer jogos e
+          brincar com mecânicas. Você pode ver meus projetos no{" "}
           <a href="https://ykkos2.itch.io/" target="_blank">
             itch.io
           </a>{" "}
-          and{" "}
+          e{" "}
           <a href="https://github.com/BrunoYDev" target="_blank">
             GitHub
           </a>
@@ -81,18 +81,18 @@ export default function AboutPage() {
         <div className={styles.interestsContainer}>
           <div>
             {" "}
-            <h4>✧ Likes & Interests ✧</h4>
+            <h4>✧ Gostos e interesses ✧</h4>
             <ul className={styles.likesList}>
-              <li>Sci-Fi (Doctor Who, Star Wars, LotR)</li>
-              <li>80s Anime Aesthetics</li>
-              <li>Game Development (Unity/Godot/etc.)</li>
-              <li>Classic Rock & City Pop</li>
-              <li>The Frutiger Aero design philosophy</li>
+              <li>Ficção científica (Doctor Who, Star Wars, LotR)</li>
+              <li>Estética de anime dos anos 80</li>
+              <li>Desenvolvimento de jogos (Unity/Godot/etc.)</li>
+              <li>Rock clássico e City Pop</li>
+              <li>A filosofia de design Frutiger Aero</li>
             </ul>
           </div>
           <Image
             src="/images/eternalOzzy.gif"
-            alt="Decorative GIF"
+            alt="GIF decorativo"
             width={300}
             height={180}
             unoptimized
@@ -104,26 +104,25 @@ export default function AboutPage() {
       <DividerGif src="/images/megaLine.gif" />
 
       <section className={styles.widgetBox}>
-        <h2>About This Site</h2>
+        <h2>Sobre este site</h2>
         <div className={styles.siteInfo}>
           <div className={styles.siteInfoText}>
             <p>
-              This is my personal site and kind of a throwback to the early
-              internet. It&apos;s built with Next.js, React, and Vercel, but
-              styled to look like something from the Y2K era. You&apos;ll find
-              dev stuff, personal thoughts, and way too many animated GIFs.
+              Este é meu site pessoal e uma espécie de homenagem à internet do
+              início. Ele é feito com Next.js, React e Vercel, mas estilizado
+              para parecer algo da era Y2K. Aqui você encontra coisas de dev,
+              pensamentos pessoais e GIFs animados demais.
             </p>
             <p>
-              I&apos;m from Brazil but I write in English here. There&apos;s
-              a language selector up top if you want to read in Portuguese
-              or German. The Guestbook is open for any language though, write
-              in whatever you want.
+              Sou do Brasil e agora escrevo em português aqui. Se quiser ler em
+              inglês ou alemão, use o seletor de idioma lá em cima. O Livro de
+              Visitas aceita qualquer idioma, então escreva como quiser.
             </p>
           </div>
 
           <Image
             src="/images/homerSimpsonBush.gif"
-            alt="Homer Simpson backing into bushes"
+            alt="Homer Simpson recuando para os arbustos"
             width={120}
             height={90}
             unoptimized
@@ -136,7 +135,7 @@ export default function AboutPage() {
       <section className={styles.widgetBox}>
         <Image
           src="/images/myLinks.gif"
-          alt="My links gif"
+          alt="GIF dos meus links"
           width={200}
           height={45}
           unoptimized
@@ -150,7 +149,7 @@ export default function AboutPage() {
               unoptimized
               alt="GitHub"
             />
-            My GitHub
+            Meu GitHub
           </Link>
           <Link href="https://ykkos2.itch.io/" target="_blank">
             <Image
@@ -160,7 +159,7 @@ export default function AboutPage() {
               unoptimized
               alt="Itch.io"
             />
-            My Itch.io
+            Meu Itch.io
           </Link>
           <Link href="https://steamcommunity.com/id/YkkoAikko" target="_blank">
             <Image
@@ -170,7 +169,7 @@ export default function AboutPage() {
               unoptimized
               alt="Steam"
             />
-            My Steam
+            Meu Steam
           </Link>
         </div>
       </section>

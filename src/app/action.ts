@@ -26,7 +26,7 @@ export async function addGuestbookEntry(formData: FormData) {
   const message = formData.get('message') as string;
 
   if (!username.trim() || !message.trim()) {
-    return { error: 'Error: Name and message cannot be empty.' };
+    return { error: 'Erro: nome e mensagem não podem ficar vazios.' };
   }
 
   const { error } = await supabase
@@ -35,7 +35,7 @@ export async function addGuestbookEntry(formData: FormData) {
   
   if (error) {
     console.error('Supabase error:', error);
-    return { error: 'Error: Could not save the message.' };
+    return { error: 'Erro: não foi possível salvar a mensagem.' };
   }
   revalidatePath('/guestbook');
   return { success: true };

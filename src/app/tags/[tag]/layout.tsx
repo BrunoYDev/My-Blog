@@ -19,7 +19,7 @@ export default function BlogLayout({
     <div className={styles.container}>
       <aside className={styles.sidebar}>
         <details className={styles.detailsSection} open>
-          <summary className={styles.summary}>📂 Posts By Data</summary>
+          <summary className={styles.summary}>📂 Posts por data</summary>
           {sortedYears.map((year) => (
             <details key={year} className={styles.yearDetails}>
               <summary className={styles.yearSummary}> {year}</summary>
@@ -30,7 +30,7 @@ export default function BlogLayout({
 
                   const monthName = new Date(
                     `${year}-${month}-01T12:00:00Z`
-                  ).toLocaleString("en", { month: "long" });
+                  ).toLocaleString("pt-BR", { month: "long" });
 
                   return (
                     <details key={month} className={styles.monthDetails}>
@@ -52,7 +52,7 @@ export default function BlogLayout({
         </details>
 
         <details className={styles.detailsSection} open>
-          <summary className={styles.summary}>🏷️ Tags Navigation</summary>
+          <summary className={styles.summary}>🏷️ Navegação por tags</summary>
           <div className={styles.tagCloud}>
             {allTags.map((tag) => (
               <Link key={tag} href={`/tags/${tag}`} className={styles.tag}>
