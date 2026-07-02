@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://brunorgarciablog.vercel.app',
+  siteUrl: 'https://brunorgb.vercel.app/',
   generateRobotsTxt: true,
 }

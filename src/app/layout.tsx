@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import Header from "@/components/Header/Header";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Footer } from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://brunorgarciablog.vercel.app"),
+  metadataBase: new URL("https://brunorgb.vercel.app/"),
   title: {
     default: "BrunoRGB",
     template: "%s | BrunoRGB",

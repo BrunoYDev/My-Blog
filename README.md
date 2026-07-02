@@ -5,7 +5,7 @@
 
 Welcome to my personal blog, a digital playground built as a love letter to the creative, chaotic, and wonderfully personal web of the late 90s and early 2000s.
 
-**Live Demo:** [**https://brunorgarciablog.vercel.app/**](https://brunorgarciablog.vercel.app/)
+**Live Demo:** [**https://brunorgb.vercel.app/**](https://brunorgb.vercel.app/)
 
 ---
 
