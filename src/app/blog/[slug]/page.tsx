@@ -56,9 +56,9 @@ export default async function PostPage({
     }
 
     return (
-      <>
-        <div className={styles.postLayout}>
-          <article className={styles.postArticle} id="post-article">
+      <div className={styles.postLayout}>
+        <article className={styles.postArticle} id="post-article">
+          <div className={styles.postHeader}>
             <h1 className={styles.postTitle}>{metadata.title}</h1>
             <div className={styles.postMeta}>
               Publicado em <FormattedDate dateString={metadata.date} /> por{" "}
@@ -75,14 +75,21 @@ export default async function PostPage({
                 ))}
               </div>
             )}
+          </div>
 
+          <div className={styles.postBodyContainer}>
             <div className={styles.postContent}>
               <PostContent components={{ CenteredImage, YouTube }} />
             </div>
-          </article>
-        </div>
-        {metadata.showToc && <CyberTOC headings={headings} />}
-      </>
+
+            {metadata.showToc && (
+              <div className={styles.tocWrapper}>
+                <CyberTOC headings={headings} />
+              </div>
+            )}
+          </div>
+        </article>
+      </div>
     );
   } catch (error) {
     console.log(error);

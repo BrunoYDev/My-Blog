@@ -1,10 +1,10 @@
-/* TOC: position fixed on the viewport, right side */
+/* TOC: position absolute relative to the zero-width sticky wrapper */
 .tocContainer {
-  position: fixed;
-  top: 2rem;
-  right: 20px;
+  position: absolute;
+  top: 0;
+  left: 66px; /* 46px (article padding) + 20px (margin) to hang outside the article border */
   width: 250px;
-  max-height: calc(100vh - 4rem);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   font-family: 'Courier New', Courier, monospace;
   background-color: #0d0d0d;
@@ -14,11 +14,10 @@
   box-shadow: 4px 4px 0px #000;
   scrollbar-width: thin;
   scrollbar-color: #333 #0d0d0d;
-  z-index: 50;
   transition: opacity 0.3s ease;
 }
 
-/* Collapsed state: small Y2K button */
+/* Collapsed state */
 .collapsed .tocHeader,
 .collapsed .tocNav {
   display: none;
@@ -30,11 +29,28 @@
   padding: 0.75rem;
 }
 
-.collapsed::after {
-  content: '// [+]';
+/* The expand button visible only when collapsed */
+.expandBtn {
+  display: none;
+}
+
+.collapsed .expandBtn {
+  display: inline-block;
+  background: none;
+  border: 1px solid #555;
   color: #8be9fd;
+  font-family: inherit;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  padding: 4px 8px;
+  transition: all 0.2s;
+}
+
+.collapsed .expandBtn:hover {
+  border-color: #ff79c6;
+  color: #ff79c6;
+  text-shadow: 0 0 5px rgba(255, 121, 198, 0.5);
 }
 
 /* Mobile: static, full-width, above the post */

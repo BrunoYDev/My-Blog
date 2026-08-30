@@ -90,7 +90,7 @@ export function CyberTOC({ headings }: { headings: Heading[] }) {
         }
 
         // Hide if article is fully scrolled past
-        if (articleRect.bottom < tocHeight + 32) {
+        if (articleRect.bottom < tocHeight + 80) {
           aside.style.opacity = '0';
           aside.style.pointerEvents = 'none';
           return;
@@ -158,6 +158,13 @@ export function CyberTOC({ headings }: { headings: Heading[] }) {
           ))}
         </ul>
       </nav>
+      <button
+        className={styles.expandBtn}
+        onClick={handleToggle}
+        title="Expandir Sumário"
+      >
+        {'// [+]'}
+      </button>
     </aside>
   );
 }

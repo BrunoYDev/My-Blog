@@ -39,6 +39,36 @@
   font-size: 1.1rem;
   line-height: 1.8;
   color: #333;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Zero-width sticky wrapper for desktop */
+.postBodyContainer {
+  display: flex;
+  position: relative;
+}
+
+.tocWrapper {
+  width: 0;
+  height: 0;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .postBodyContainer {
+    flex-direction: column;
+  }
+  
+  .tocWrapper {
+    position: static;
+    width: 100%;
+    height: auto;
+    order: -1; /* Place it above the post content */
+    margin-bottom: 2rem;
+  }
 }
 
 .postContent img {
