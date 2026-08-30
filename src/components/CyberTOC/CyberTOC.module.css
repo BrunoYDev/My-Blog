@@ -52,7 +52,6 @@
   min-width: auto;
   padding: 0.75rem;
   display: inline-block;
-  align-self: flex-end;
 }
 
 .collapsed .toggleBtn {
