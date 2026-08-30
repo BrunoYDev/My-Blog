@@ -1,6 +1,7 @@
 .tocContainer {
   position: sticky;
   top: 2rem;
+  align-self: flex-start;
   width: 250px;
   min-width: 250px;
   max-height: calc(100vh - 4rem);
@@ -13,6 +14,16 @@
   box-shadow: 4px 4px 0px #000;
   scrollbar-width: thin;
   scrollbar-color: #333 #0d0d0d;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .tocContainer {
+    position: static;
+    max-height: none;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }
 
 .tocHeader {
