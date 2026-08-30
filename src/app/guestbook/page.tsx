@@ -1,52 +1,68 @@
-import Image from 'next/image';
-import { supabase } from '../../../lib/supabaseClient';
-import { GuestbookForm } from '../../components/GuestbookForm/GuestbookForm';
-import { PaginationControls } from '../../components/PaginationControls/PaginationControls';
-import styles from './guestbook.module.css';
+import Image from "next/image";
+import { supabase } from "../../../lib/supabaseClient";
+import { GuestbookForm } from "../../components/GuestbookForm/GuestbookForm";
+import { PaginationControls } from "../../components/PaginationControls/PaginationControls";
+import styles from "./guestbook.module.css";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 const ENTRIES_PER_PAGE = 5;
 
 export default async function GuestbookPage() {
   const { count } = await supabase
-    .from('guestbook_entries')
-    .select('*', { count: 'exact', head: true });
+    .from("guestbook_entries")
+    .select("*", { count: "exact", head: true });
 
   const totalPages = Math.ceil((count ?? 0) / ENTRIES_PER_PAGE);
 
   const { data: entries, error } = await supabase
-    .from('guestbook_entries')
-    .select('*')
-    .order('created_at', { ascending: false })
+    .from("guestbook_entries")
+    .select("*")
+    .order("created_at", { ascending: false })
     .range(0, ENTRIES_PER_PAGE - 1);
 
   if (error) {
-    console.error('Error fetching entries:', error);
+    console.error("Error fetching entries:", error);
   }
 
   return (
     <section className={styles.container}>
-      <h1 className={styles.title}>✧･ﾟ: *✧･ﾟ:* Livro de Visitas! *:･ﾟ✧*:･ﾟ✧</h1>
-      <p className={styles.subtitle}>Deixe uma mensagem no mural para todo mundo ver!</p>
+      <h1 className={styles.title}>✧✧ Livro de Visitas ✧✧</h1>
+      <p className={styles.subtitle}>
+        Deixe uma mensagem no mural para todo mundo ver!
+      </p>
 
       <GuestbookForm />
-      <Image src="/images/powerLine.gif" style={{ maxWidth: '100%' }} width={760} height={80} alt="GIF divisor" unoptimized />
+      <Image
+        src="/images/powerLine.gif"
+        style={{ maxWidth: "100%" }}
+        width={760}
+        height={80}
+        alt="GIF divisor"
+        unoptimized
+      />
 
       <div className={styles.entriesList}>
-        {entries?.map(entry => (
+        {entries?.map((entry) => (
           <div key={entry.id} className={styles.entry}>
             <p className={styles.entryMessage}>&ldquo;{entry.message}&rdquo;</p>
             <div className={styles.entryFooter}>
               <span className={styles.entryAuthor}>- {entry.username}</span>
               <time className={styles.entryDate}>
-                {new Date(entry.created_at).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' })}
+                {new Date(entry.created_at).toLocaleString("pt-BR", {
+                  dateStyle: "short",
+                  timeStyle: "short",
+                })}
               </time>
             </div>
           </div>
         ))}
       </div>
 
-      <PaginationControls currentPage={1} totalPages={totalPages} basePath="/guestbook" />
+      <PaginationControls
+        currentPage={1}
+        totalPages={totalPages}
+        basePath="/guestbook"
+      />
     </section>
   );
 }
