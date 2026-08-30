@@ -19,11 +19,12 @@ export function CyberTOC({ headings }: { headings: Heading[] }) {
   if (headings.length === 0) return null;
 
   return (
-    <div ref={wrapperRef} className={styles.tocWrapperInner}>
+    <div ref={wrapperRef} className={`${styles.tocWrapperInner} notranslate`}>
       <aside
         ref={tocRef}
         className={`${styles.tocContainer} ${isCollapsed ? styles.collapsed : ''}`}
         style={style}
+        translate="no"
       >
         {isCollapsed ? (
           <button
