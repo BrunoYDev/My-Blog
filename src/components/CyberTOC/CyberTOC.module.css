@@ -16,6 +16,9 @@
 }
 
 .tocHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #fff;
   font-weight: bold;
   font-size: 1.1rem;
@@ -24,6 +27,38 @@
   padding-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.toggleBtn {
+  background: none;
+  border: 1px solid #555;
+  color: #bd93f9;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: all 0.2s;
+}
+
+.toggleBtn:hover {
+  border-color: #ff79c6;
+  color: #ff79c6;
+  text-shadow: 0 0 5px rgba(255, 121, 198, 0.5);
+  box-shadow: 0 0 5px rgba(255, 121, 198, 0.3);
+}
+
+.collapsed {
+  width: auto;
+  min-width: auto;
+  padding: 0.75rem;
+  display: inline-block;
+  align-self: flex-end;
+}
+
+.collapsed .toggleBtn {
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .tocIcon {

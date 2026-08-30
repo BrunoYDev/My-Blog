@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useActiveHeading } from '@/hooks/useActiveHeading';
 import styles from './CyberTOC.module.css';
 
@@ -11,13 +12,37 @@ export interface Heading {
 
 export function CyberTOC({ headings }: { headings: Heading[] }) {
   const activeId = useActiveHeading(headings.map((h) => h.id));
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   if (headings.length === 0) return null;
+
+  if (isCollapsed) {
+    return (
+      <aside className={`${styles.tocContainer} ${styles.collapsed}`}>
+        <button 
+          className={styles.toggleBtn} 
+          onClick={() => setIsCollapsed(false)}
+          title="Expandir Sumário"
+        >
+          <span className={styles.tocIcon}>{'//'}</span> [+]
+        </button>
+      </aside>
+    );
+  }
 
   return (
     <aside className={styles.tocContainer}>
       <div className={styles.tocHeader}>
-        <span className={styles.tocIcon}>{'//'}</span> INDEX
+        <div>
+          <span className={styles.tocIcon}>{'//'}</span> INDEX
+        </div>
+        <button 
+          className={styles.toggleBtn} 
+          onClick={() => setIsCollapsed(true)}
+          title="Minimizar Sumário"
+        >
+          [-]
+        </button>
       </div>
       <nav className={styles.tocNav}>
         <ul className={styles.tocList}>
