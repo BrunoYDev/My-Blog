@@ -1,10 +1,33 @@
+.postLayout {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+  .postLayout {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .postArticle {
+  flex: 1;
   width: 100%;
   max-width: 860px;
-  margin: 20px auto;
   padding: 46px;
   background-color: #fff;
   border: 2px solid black;
+  /* Ensure anchors have scroll margin so fixed header doesn't overlap */
+  scroll-behavior: smooth;
+}
+
+.postContent h2, .postContent h3 {
+  scroll-margin-top: 2rem;
 }
 
 .postTitle {
