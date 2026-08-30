@@ -1,20 +1,30 @@
 .postLayout {
-  display: grid;
-  grid-template-columns: 1fr 250px;
-  align-items: start;
-  gap: 2rem;
+  position: relative;
+  display: block;
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
 }
 
 .tocWrapper {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
 }
 
 @media (max-width: 1024px) {
   .postLayout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tocWrapper {
+    position: static;
+    height: auto;
+    pointer-events: auto;
   }
 }
 
