@@ -1,7 +1,7 @@
 .postLayout {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  align-items: start;
   gap: 2rem;
   max-width: 1200px;
   margin: 20px auto;
@@ -10,8 +10,7 @@
 
 @media (max-width: 1024px) {
   .postLayout {
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: 1fr;
   }
 }
 

@@ -45,7 +45,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
     return (
       <div className={styles.postLayout}>
-        {metadata.showToc && <CyberTOC headings={headings} />}
         <article className={styles.postArticle}>
           <h1 className={styles.postTitle}>{metadata.title}</h1>
           <div className={styles.postMeta}>
@@ -67,6 +66,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <PostContent components={{ CenteredImage, YouTube }} />
           </div>
         </article>
+        {metadata.showToc && <CyberTOC headings={headings} />}
       </div>
     );
   } catch (error) {

@@ -36,6 +36,11 @@ export default config({
           label: "Ocultar este post",
           defaultValue: false,
         }),
+        showToc: fields.checkbox({
+          label: "Sumarizar",
+          description: "Ative para mostrar o sumário cibernético lateral neste post.",
+          defaultValue: false,
+        }),
         tags: fields.array(fields.text({ label: "Tag" }), {
           label: "Tags",
           itemLabel: (props) => props.value,
