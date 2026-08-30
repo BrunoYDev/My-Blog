@@ -8,6 +8,10 @@
   padding: 0 20px;
 }
 
+.tocWrapper {
+  height: 100%;
+}
+
 @media (max-width: 1024px) {
   .postLayout {
     grid-template-columns: 1fr;

@@ -66,7 +66,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <PostContent components={{ CenteredImage, YouTube }} />
           </div>
         </article>
-        {metadata.showToc && <CyberTOC headings={headings} />}
+        <div className={styles.tocWrapper}>
+          {metadata.showToc && <CyberTOC headings={headings} />}
+        </div>
       </div>
     );
   } catch (error) {

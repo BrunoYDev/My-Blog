@@ -1,7 +1,6 @@
 .tocContainer {
   position: sticky;
   top: 2rem;
-  align-self: flex-start;
   width: 250px;
   min-width: 250px;
   max-height: calc(100vh - 4rem);
