@@ -1,14 +1,10 @@
-/* The inner wrapper fills the full height of the absolute outer wrapper */
-.tocWrapperInner {
-  position: relative;
-  height: 100%;
-}
-
+/* TOC: position fixed on the viewport, right side */
 .tocContainer {
+  position: fixed;
+  top: 2rem;
+  right: 20px;
   width: 250px;
-  min-width: 250px;
   max-height: calc(100vh - 4rem);
-  pointer-events: auto;
   overflow-y: auto;
   font-family: 'Courier New', Courier, monospace;
   background-color: #0d0d0d;
@@ -18,18 +14,37 @@
   box-shadow: 4px 4px 0px #000;
   scrollbar-width: thin;
   scrollbar-color: #333 #0d0d0d;
-  z-index: 10;
+  z-index: 50;
+  transition: opacity 0.3s ease;
 }
 
+/* Collapsed state: small Y2K button */
+.collapsed .tocHeader,
+.collapsed .tocNav {
+  display: none;
+}
+
+.collapsed {
+  width: auto;
+  min-width: auto;
+  padding: 0.75rem;
+}
+
+.collapsed::after {
+  content: '// [+]';
+  color: #8be9fd;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Mobile: static, full-width, above the post */
 @media (max-width: 1024px) {
-  .tocWrapperInner {
-    height: auto;
-  }
-  
   .tocContainer {
-    position: static !important;
-    max-height: none;
+    position: static;
     width: 100%;
+    max-height: none;
+    margin-bottom: 2rem;
+    z-index: auto;
   }
 }
 
@@ -63,19 +78,6 @@
   color: #ff79c6;
   text-shadow: 0 0 5px rgba(255, 121, 198, 0.5);
   box-shadow: 0 0 5px rgba(255, 121, 198, 0.3);
-}
-
-.collapsed {
-  width: auto;
-  min-width: auto;
-  padding: 0.75rem;
-  display: inline-block;
-}
-
-.collapsed .toggleBtn {
-  border: none;
-  font-size: 1rem;
-  font-weight: bold;
 }
 
 .tocIcon {
@@ -128,8 +130,8 @@
   background: transparent;
 }
 
-.tocLink.active {
-  color: #50fa7b;
+.active {
+  color: #50fa7b !important;
   text-shadow: 0 0 8px rgba(80, 250, 123, 0.6);
   font-weight: bold;
 }
