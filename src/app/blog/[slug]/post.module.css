@@ -25,6 +25,8 @@
     position: static;
     height: auto;
     pointer-events: auto;
+    order: -1;
+    margin-bottom: 2rem;
   }
 }
 

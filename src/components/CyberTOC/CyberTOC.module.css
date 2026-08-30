@@ -1,6 +1,10 @@
+/* The inner wrapper fills the full height of the absolute outer wrapper */
+.tocWrapperInner {
+  position: relative;
+  height: 100%;
+}
+
 .tocContainer {
-  position: sticky;
-  top: 2rem;
   width: 250px;
   min-width: 250px;
   max-height: calc(100vh - 4rem);
@@ -18,12 +22,14 @@
 }
 
 @media (max-width: 1024px) {
+  .tocWrapperInner {
+    height: auto;
+  }
+  
   .tocContainer {
-    position: static;
+    position: static !important;
     max-height: none;
     width: 100%;
-    margin-bottom: 2rem;
-    order: -1;
   }
 }
 
